@@ -4,4 +4,6 @@
 {: .toc subcollection="cloud-object-storage-cli" audience="cli" href="/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-reference" path="cloud-object-storage-cli-plugin"}
 Cloud Object Storage CLI
 
+    {: .navgroup id="reference"}
     cloud-object-storage-cli-reference.md
+    {: .navgroup-end}
