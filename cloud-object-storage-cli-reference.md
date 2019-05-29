@@ -48,24 +48,12 @@ At any time, to switch between HMAC and IAM authentication, you can type `ibmclo
 ## Command index
 {: #ic-command-index}
 
-| Commands |  |  |
-| --- | --- | --- |
-| [`abort-multipart-upload`](#abort-a-multipart-upload) | [`complete-multipart-upload`](#complete-a-multipart-upload) | [`config`](#configure-the-program) |
-| [`copy-object`](#copy-object-from-bucket) | [`create-bucket`](#create-a-new-bucket) | [`create-multipart-upload`](#create-a-new-multipart-upload) |
-| [`delete-bucket`](#delete-an-existing-bucket) | [`delete-bucket-cors`](#delete-bucket-cors) | [`delete-object`](#delete-an-object) |
-| [`delete-objects`](#delete-multiple-objects) | [`get-bucket-class`](#get-a-buckets-class) | [`get-bucket-cors`](#get-bucket-cors) |
-| [`get-bucket-location`](#find-a-bucket) | [`get-object`](#download-an-object) | [`head-bucket`](#get-a-buckets-headers) |
-| [`head-object`](#get-an-objects-headers) | [`list-buckets`](#list-all-buckets) | [`list-multipart-uploads`](#list-in-progress-multipart-uploads) |
-| [`list-objects`](#list-objects) | [`list-parts`](#list-parts) | [`put-bucket-cors`](#set-bucket-cors) |
-| [`put-object`](#upload-an-object) | [`upload-part`](#upload-a-part) | [`upload-part-copy`](#upload-a-part-copy) |
-| [`wait`](#wait) |  |  |
-
-Each operation listed below has an explanation of what it does, how to use it, and any optional or required parameters. Unless specified as optional, any listed parameters are mandatory.
+Each operation has an explanation of what it does, how to use it, and any optional or required parameters. Unless specified as optional, any listed parameters are mandatory.
 
 The CLI plug-in doesn't support the full suite of features available in Object Storage, such as Aspera High-Speed Transfer, Immutable Object Storage, creating Key Protect buckets, or Bucket Firewalls.
 {: note}
 
-### Abort a multipart upload
+## Abort a multipart upload
 {: #ic-abort-multipart-upload}
 * **Action:** Abort a multipart upload instance by ending the upload to the bucket in the user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos abort-multipart-upload --bucket BUCKET_NAME --key KEY --upload-id ID [--region REGION]`
@@ -80,7 +68,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Complete a multipart upload
+## Complete a multipart upload
 {: #ic-complete-multipart-upload}
 * **Action:** Complete a multipart upload instance by assembling the currently uploaded parts and uploading the file to the bucket in the user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos complete-multipart-upload --bucket BUCKET_NAME --key KEY --upload-id ID [--multipart-upload VALUE] [--region REGION]`
@@ -97,7 +85,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Configure the Program
+## Configure the Program
 {: #ic-config}
 * **Action:** Configure the program's preferences.
 * **Usage:** `ibmcloud cos config [COMMAND]`
@@ -116,7 +104,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Command: `region`
 
 
-### Copy object from bucket
+## Copy object from bucket
 {: #ic-copy-object}
 * **Action:** Copy an object from source bucket to destination bucket.
 * **Usage:** `ibmcloud cos copy-object --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION]`
@@ -153,7 +141,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Create a new bucket
+## Create a new bucket
 {: #ic-create-bucket}
 
 * **Action:** Create a bucket in an IBM Cloud Object Storage instance.
@@ -170,7 +158,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 
 
 
-### Create a new multipart upload
+## Create a new multipart upload
 {: #ic-create-multipart-upload}
 * **Action:** Begin the multipart file upload process by creating a new multipart upload instance.
 * **Usage:** `ibmcloud cos create-multipart-upload --bucket BUCKET_NAME --key KEY [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--metadata MAP] [--region REGION]`
@@ -195,7 +183,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Delete an existing bucket
+## Delete an existing bucket
 {: #ic-delete-bucket}
 
 * **Action:** Delete an existing bucket in an IBM Cloud Object Storage instance.
@@ -209,7 +197,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
        * Flag: `--force`
 
 
-### Delete bucket CORS
+## Delete bucket CORS
 {: #ic-delete-bucket-cors}
 * **Action:** Delete CORS configuration on a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos delete-bucket-cors --bucket BUCKET_NAME [--region REGION]`
@@ -220,7 +208,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Delete an object
+## Delete an object
 {: #ic-delete-object}
 * **Action:** Delete an object from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos delete-object --bucket BUCKET_NAME --key KEY [--region REGION] [--force]`
@@ -235,7 +223,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
        * Flag: `--force`
 
 
-### Delete multiple objects
+## Delete multiple objects
 {: #ic-delete-objects}
 * **Action:** Delete multiple objects from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos delete-objects --bucket BUCKET_NAME --delete VALUE [--region REGION]`
@@ -248,7 +236,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Get a bucket's class
+## Get a bucket's class
 {: #ic-bucket-class}
 * **Action:** Determine the class of a bucket in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos get-bucket-class --bucket BUCKET_NAME`
@@ -257,7 +245,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--bucket BUCKET_NAME`
 
 
-### Get bucket CORS
+## Get bucket CORS
 {: #ic-get-bucket-cors}
 * **Action:** Returns the CORS configuration for the bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos get-bucket-cors --bucket BUCKET_NAME [--region REGION]`
@@ -268,7 +256,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Find a bucket
+## Find a bucket
 {: #ic-find-bucket}
 * **Action:** Determine the location and class of a bucket in an IBM Cloud Object Storage instance. 
 * **Usage:** `ibmcloud cos get-bucket-location --bucket BUCKET_NAME`
@@ -278,7 +266,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 	
 
 
-### Download an object
+## Download an object
 {: #ic-download-object}
 * **Action:** Download an object from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos get-object --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [OUTFILE]`
@@ -315,7 +303,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Parameter: `OUTFILE`
 
 
-### Get a bucket's headers
+## Get a bucket's headers
 {: #ic-bucket-header}
 * **Action:** Determine if a bucket exists in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos head-bucket --bucket BUCKET_NAME [--region REGION]`
@@ -326,7 +314,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Get an object's headers
+## Get an object's headers
 {: #ic-object-header}
 * **Action:** Determine if a file exists in a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos head-object --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--region REGION]`
@@ -349,7 +337,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### List all buckets
+## List all buckets
 {: #ic-list-buckets}
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos list-buckets`
@@ -357,7 +345,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
     * No parameters to provide.
 
 
-### List in-progress multipart uploads
+## List in-progress multipart uploads
 {: #ic-list-multipart-uploads}
 * **Action:** Lists in-progress multipart uploads.
 * **Usage:** `ibmcloud cos list-multipart-uploads --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--key-marker value] [--upload-id-marker value] [--page-size SIZE] [--max-items NUMBER] [--region REGION]`
@@ -382,7 +370,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### List objects
+## List objects
 {: #ic-list-objects}
 * **Action:** List files present in a bucket in a user's IBM Cloud Object Storage Account.  This operation is currently limited to the 1000 most recently created objects and can't be filtered.
 * **Usage:** `ibmcloud cos list-objects --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--starting-token TOKEN] [--page-size SIZE] [--max-items NUMBER] [--region REGION]`
@@ -405,7 +393,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### List parts
+## List parts
 {: #ic-list-parts}
 * **Action:** Print out information about an in progress multipart upload instance.
 * **Usage:** `ibmcloud cos list-parts --bucket BUCKET_NAME --key KEY --upload-id ID --part-number-marker VALUE [--page-size SIZE] [--max-items NUMBER] [--region REGION]`
@@ -426,7 +414,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--region REGION`
 
 
-### Set bucket CORS
+## Set bucket CORS
 {: #ic-set-bucket-cors}
 * **Action:** Sets the CORS configuration for a bucket in the user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos put-bucket-cors --bucket BUCKET_NAME [--cors-configuration VALUE] [--content-md5 MD5] [--region REGION]`
@@ -442,7 +430,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 
 
 
-### Put object
+## Put object
 {: #ic-upload-object}
 * **Action:** Upload an object to a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos put-object --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION]`
@@ -505,7 +493,7 @@ Add more entries to this JSON template as necessary.
 
 To see the status of your multipart upload instance, you can always run the `part-list` command, providing the bucket name, key, and the upload ID. This prints out raw information about your multipart upload instance. Once you have completed uploading each part of the file, run the `multipart-upload-complete` command with the necessary parameters. If all goes well, you receive a confirmation that the file uploaded successfully to the wanted bucket.
 
-### Upload a part
+## Upload a part
 {: #ic-upload-part}
 * **Action:** Upload a part of a file in an existing multipart upload instance.
 * **Usage:** `ibmcloud cos upload-part --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER [--body FILE_PATH] [--region REGION]`
@@ -525,7 +513,7 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Flag: `--region REGION`
 
 
-### Upload a part copy
+## Upload a part copy
 {: #ic-upload-a-part-copy}
 * **Action:** Upload a part by copying data from an existing object.
 * **Usage:** `ibmcloud cos upload-part-copy --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER --copy-source SOURCE [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--copy-source-range value] [--region REGION]`
@@ -555,7 +543,7 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Flag: `--region REGION`
 
 
-### Wait
+## Wait
 {: #ic-wait}
 * **Action:** Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met.
 * **Usage:** `ibmcloud cos wait command [arguments...] [command options]`
