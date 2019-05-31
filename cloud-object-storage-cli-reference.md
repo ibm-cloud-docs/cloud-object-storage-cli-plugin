@@ -13,8 +13,8 @@ lastupdated: "22-01-2019"
 {:tip: .tip}
 {:note: .note}
 
-# Use the IBM Cloud CLI
-{: #ic-use-the-ibm-cli}
+# IBM Cloud Object Storage CLI
+{: #ic-cos-cli}
 
 The Cloud Object Storage plug-in extends the IBM Cloud command line interface (CLI) with an API wrapper for working with Object Storage resources.
 
