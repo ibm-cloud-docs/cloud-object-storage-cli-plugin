@@ -16,7 +16,7 @@ lastupdated: "22-01-2019"
 # IBM Cloud Object Storage CLI
 {: #ic-cos-cli}
 
-The Cloud Object Storage plug-in extends the IBM Cloud command line interface (CLI) with an API wrapper for working with Object Storage resources.
+The Cloud Object Storage plug-in extends the IBM Cloud command-line interface (CLI) with an API wrapper for working with Object Storage resources.
 
 ## Installation and configuration
 {: #ic-installation}
@@ -50,7 +50,7 @@ At any time, to switch between HMAC and IAM authentication, you can type `ibmclo
 
 Each operation has an explanation of what it does, how to use it, and any optional or required parameters. Unless specified as optional, any listed parameters are mandatory.
 
-The CLI plug-in doesn't support the full suite of features available in Object Storage, such as Aspera High-Speed Transfer, Immutable Object Storage, creating Key Protect buckets, or Bucket Firewalls.
+The CLI plug-in doesn't yet support the full suite of features available in Object Storage. Aspera High-Speed Transfer, Immutable Object Storage, creating Key Protect buckets, or Bucket Firewalls cannot be used by the CLI.
 {: note}
 
 ## Abort a multipart upload
@@ -64,7 +64,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--key KEY`
 	* Upload ID identifying the multipart upload.
 		* Flag: `--upload-id ID`
-	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+	* _Optional_: The REGION where the bucket is present. If this flag isn't provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
 
 
@@ -107,7 +107,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 ## Copy object from bucket
 {: #ic-copy-object}
 * **Action:** Copy an object from source bucket to destination bucket.
-* **Usage:** `ibmcloud cos copy-object --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION]`
+* **Usage:** `ibmcloud cos copy-object --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match `ETAG`] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match `ETAG`] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -125,17 +125,17 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--content-language LANGUAGE`
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
-	* _Optional_: Copies the object if its entity tag (Etag) matches the specified tag (ETAG).
-		* Flag: `--copy-source-if-match ETAG`
+	* _Optional_: Copies the object if its entity tag (`Etag`) matches the specified tag (`ETAG`).
+		* Flag: `--copy-source-if-match `ETAG``
 	* _Optional_: Copies the object if it has been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-modified-since TIMESTAMP`
-	* _Optional_: Copies the object if its entity tag (ETag) is different than the specified tag (ETAG).
-		* Flag: `--copy-source-if-none-match ETAG`
+	* _Optional_: Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).
+		* Flag: `--copy-source-if-none-match `ETAG``
 	* _Optional_: Copies the object if it hasn't been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-unmodified-since TIMESTAMP`
 	* _Optional_: A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
 		* Flag: `--metadata MAP`
-	* _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. DIRECTIVE values: COPY,REPLACE.
+	* _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata that is provided in the request. `DIRECTIVE` values: `COPY`, `REPLACE`.
 		* Flag: ` --metadata-directive DIRECTIVE`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
@@ -193,7 +193,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--bucket BUCKET_NAME`
     * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
        * Flag: `--region REGION`
-    * _Optional_: The operation will do not ask for confirmation.
+    * _Optional_: The operation does not ask for confirmation.
        * Flag: `--force`
 
 
@@ -219,7 +219,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--key KEY`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-    * _Optional_: The operation will do not ask for confirmation.
+    * _Optional_: The operation does not ask for confirmation.
        * Flag: `--force`
 
 
@@ -269,18 +269,18 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 ## Download an object
 {: #ic-download-object}
 * **Action:** Download an object from a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos get-object --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [OUTFILE]`
+* **Usage:** `ibmcloud cos get-object --bucket BUCKET_NAME --key KEY [--if-match `ETAG`] [--if-modified-since TIMESTAMP] [--if-none-match `ETAG`] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [OUTFILE]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* The KEY of the object.
 		* Flag: `--key KEY`
-	* _Optional_: Return the object only if its entity tag (ETag) is the same as the ETAG specified, otherwise return a 412 (precondition failed).
-		* Flag: `--if-match ETAG`
+	* _Optional_: Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).
+		* Flag: `--if-match `ETAG``
 	* _Optional_: Return the object only if it has been modified since the specified TIMESTAMP, otherwise return a 304 (not modified).
 		* Flag: `--if-modified-since TIMESTAMP`
-	* _Optional_: Return the object only if its entity tag (ETag) is different from the ETAG specified, otherwise return a 304 (not modified).
-		* Flag: `--if-none-match ETAG`
+	* _Optional_: Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).
+		* Flag: `--if-none-match `ETAG``
 	* _Optional_: Return the object only if it has not been modified since the specified TIMESTAMP, otherwise return a 412 (precondition failed).
 		* Flag: `--if-unmodified-since TIMESTAMP`
 	* _Optional_: Downloads the specified RANGE bytes of an object.
@@ -305,7 +305,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 
 ## Get a bucket's headers
 {: #ic-bucket-header}
-* **Action:** Determine if a bucket exists in an IBM Cloud Object Storage instance.
+* **Action:** Determine whether a bucket exists in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos head-bucket --bucket BUCKET_NAME [--region REGION]`
 * **Parameters to provide:**
 	* The name of the bucket.
@@ -317,18 +317,18 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 ## Get an object's headers
 {: #ic-object-header}
 * **Action:** Determine if a file exists in a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos head-object --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--region REGION]`
+* **Usage:** `ibmcloud cos head-object --bucket BUCKET_NAME --key KEY [--if-match `ETAG`] [--if-modified-since TIMESTAMP] [--if-none-match `ETAG`] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--region REGION]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* The KEY of the object.
 		* Flag: `--key KEY`
-	* _Optional_: Return the object only if its entity tag (ETag) is the same as the ETAG specified, otherwise return a 412 (precondition failed).
-		* Flag: `--if-match ETAG`
+	* _Optional_: Return the object only if its entity tag (ETag) is the same as the `ETAG` specified, otherwise return a 412 (precondition failed).
+		* Flag: `--if-match `ETAG``
 	* _Optional_: Return the object only if it has been modified since the specified TIMESTAMP, otherwise return a 304 (not modified).
 		* Flag: `--if-modified-since TIMESTAMP`
-	* _Optional_: Return the object only if its entity tag (ETag) is different from the ETAG specified, otherwise return a 304 (not modified).
-		* Flag: `--if-none-match ETAG`
+	* _Optional_: Return the object only if its entity tag (ETag) is different from the `ETAG` specified, otherwise return a 304 (not modified).
+		* Flag: `--if-none-match `ETAG``
 	* _Optional_: Return the object only if it has not been modified since the specified TIMESTAMP, otherwise return a 412 (precondition failed).
 		* Flag: `--if-unmodified-since TIMESTAMP`
 	* Downloads the specified RANGE bytes of an object.
@@ -385,7 +385,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--prefix PREFIX`
 	* _Optional_: A TOKEN to specify where to start paginating. This is the NextToken from a previously truncated response.
 		* Flag: `--starting-token TOKEN`
-	* _Optional_: The SIZE of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out. (default: 1000)
+	* _Optional_: The SIZE of each page to get in the service call. This does not affect the number of items that are returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out. (default: 1000)
 		* Flag: `--page-size SIZE`
 	* _Optional_: The total NUMBER of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. (default: 0)
 		* Flag: `--max-items NUMBER`
@@ -395,7 +395,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 
 ## List parts
 {: #ic-list-parts}
-* **Action:** Print out information about an in progress multipart upload instance.
+* **Action:** Print information about an in progress multipart upload instance.
 * **Usage:** `ibmcloud cos list-parts --bucket BUCKET_NAME --key KEY --upload-id ID --part-number-marker VALUE [--page-size SIZE] [--max-items NUMBER] [--region REGION]`
 * **Parameters to provide:**
 	* The name of the bucket.
@@ -406,7 +406,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 		* Flag: `--upload-id ID`
 	* Part number VALUE after which listing begins (default: 1)
 		* Flag: `--part-number-marker VALUE`
-	* _Optional_: The SIZE of each page to get in the service call. This does not affect the number of items returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out. (default: 1000)
+	* _Optional_: The SIZE of each page to get in the service call. This does not affect the number of items that are returned in the command's output. Setting a smaller page size results in more calls to the AWS service, retrieving fewer items in each call. This can help prevent the service calls from timing out. (default: 1000)
 		* Flag: `--page-size SIZE`
 	* _Optional_: The total NUMBER of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output. To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command. (default: 0)
 		* Flag: `--max-items NUMBER`
@@ -421,7 +421,7 @@ The CLI plug-in doesn't support the full suite of features available in Object S
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
-	* _Optional_: The VALUE of Cors Configuration to set.
+	* _Optional_: The VALUE of CORS Configuration to set.
 		* Flag: `--cors-configuration VALUE`
 	* _Optional_: The base64-encoded 128-bit MD5 digest of the data.
 		* Flag: `--content-md5 MD5`
@@ -470,9 +470,9 @@ The IBM Cloud Object Storage CLI provides the ability for users to upload large 
 {object data} | openssl dgst -md5 -binary | openssl enc -base64
 ```
 
-Once you have run the `multipart-upload-complete` command, run `part-upload` for each file part you want to upload. **For multipart uploads, every file part (except for the last part) must be at least 5 MB in size.** To split a file into separate parts, you can run `split` in a terminal window. For example, if you have a 13 MB file that is named `TESTFILE` on your Desktop, and you would like to split it into file parts of 5 MB each, you can run `split -b 3m ~/Desktop/TESTFILE part-file-`. This command generates three file parts into two file parts of 5 MB each, and one file part of 3 MB, with the names `part-file-aa`, `part-file-ab`, and `part-file-ac`.
+After running the `multipart-upload-complete` command, run `part-upload` for each file part you want to upload. **For multipart uploads, every file part (except for the last part) must be at least 5 MB.** To split a file into separate parts, you can run `split` in a terminal window. For example, if you have a 13 MB file that is named `TESTFILE` on your Desktop, and you would like to split it into file parts of 5 MB each, you can run `split -b 3m ~/Desktop/TESTFILE part-file-`. This command generates three file parts into two file parts of 5 MB each, and one file part of 3 MB, with the names `part-file-aa`, `part-file-ab`, and `part-file-ac`.
 
-As each file part is uploaded, the CLI prints out its ETag. You must save this ETag into a formatted JSON file, along with the part number. Use this template to create your own ETag JSON data file.
+As each file part is uploaded, the CLI print its ETag. You must save this ETag into a formatted JSON file, along with the part number. Use this template to create your own ETag JSON data file.
 
 ```
 {
@@ -491,7 +491,7 @@ As each file part is uploaded, the CLI prints out its ETag. You must save this E
 
 Add more entries to this JSON template as necessary.
 
-To see the status of your multipart upload instance, you can always run the `part-list` command, providing the bucket name, key, and the upload ID. This prints out raw information about your multipart upload instance. Once you have completed uploading each part of the file, run the `multipart-upload-complete` command with the necessary parameters. If all goes well, you receive a confirmation that the file uploaded successfully to the wanted bucket.
+To see the status of your multipart upload instance, you can always run the `part-list` command, providing the bucket name, key, and the upload ID. This print raw information about your multipart upload instance. Once you have completed uploading each part of the file, run the `multipart-upload-complete` command with the necessary parameters. If all goes well, you receive a confirmation that the file uploaded successfully to the wanted bucket.
 
 ## Upload a part
 {: #ic-upload-part}
@@ -516,7 +516,7 @@ To see the status of your multipart upload instance, you can always run the `par
 ## Upload a part copy
 {: #ic-upload-a-part-copy}
 * **Action:** Upload a part by copying data from an existing object.
-* **Usage:** `ibmcloud cos upload-part-copy --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER --copy-source SOURCE [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--copy-source-range value] [--region REGION]`
+* **Usage:** `ibmcloud cos upload-part-copy --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER --copy-source SOURCE [--copy-source-if-match `ETAG`] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match `ETAG`] [--copy-source-if-unmodified-since TIMESTAMP] [--copy-source-range value] [--region REGION]`
 	* Note that you must save each uploaded file part's number and ETag (which the CLI will print for you) for each part into a JSON file. Refer to the "Multipart Upload Guide" for more information.
 * **Parameters to provide:**
 	* The name of the bucket.
@@ -525,16 +525,16 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Flag: `--key KEY`
 	* Upload ID identifying the multipart upload.
 		* Flag: `--upload-id ID`
-	* Part NUMBER of part being uploaded. This is a positive integer between 1 and 10,000.
+	* Part NUMBER of part being uploaded. This is a positive integer in the range 1 - 10,000.
 		* Flag: `--part-number PART_NUMBER`
 	* (SOURCE) The name of the source bucket and key name of the source object, which is separated by a slash (/). Must be URL-encoded.
 		* Flag: `--copy-source SOURCE`
-	* _Optional_: Copies the object if its entity tag (Etag) matches the specified tag (ETAG).
-		* Flag: `--copy-source-if-match ETAG`
+	* _Optional_: Copies the object if its entity tag (`Etag`) matches the specified tag (`ETAG`).
+		* Flag: `--copy-source-if-match `ETAG``
 	* _Optional_: Copies the object if it has been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-modified-since TIMESTAMP`
-	* _Optional_: Copies the object if its entity tag (ETag) is different than the specified tag (ETAG).
-		* Flag: `--copy-source-if-none-match ETAG`
+	* _Optional_: Copies the object if its entity tag (ETag) is different than the specified tag (`ETAG`).
+		* Flag: `--copy-source-if-none-match `ETAG``
 	* _Optional_: Copies the object if it hasn't been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-unmodified-since TIMESTAMP`
 	* _Optional_: The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 MB.
