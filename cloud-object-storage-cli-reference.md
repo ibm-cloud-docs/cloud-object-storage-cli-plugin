@@ -225,7 +225,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## Delete multiple objects
 {: #ic-delete-objects}
-* **Action:** Delete multiple objects from a bucket in a user's IBM Cloud Object Storage account.
+* **Action:** Delete multiple objects from a bucket in a user's IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos delete-objects --bucket BUCKET_NAME --delete VALUE [--region REGION]`
 * **Parameters to provide:**
     * The name of the bucket.
@@ -368,7 +368,6 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--max-items NUMBER`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-
 
 ## List objects
 {: #ic-list-objects}
@@ -556,4 +555,3 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Wait until 200 response is received when polling with head-object. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
 	* `object-not-exists`
 		* Wait until 404 response is received when polling with head-object. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
-
