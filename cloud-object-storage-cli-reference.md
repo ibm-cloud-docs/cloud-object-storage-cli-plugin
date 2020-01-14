@@ -30,7 +30,7 @@ Install the plug-in by using the `plugin install` command.
 ibmcloud plugin install cloud-object-storage
 ```
 
-Once the plug-in is installed, you can configure the plug-in using the [`ibmcloud cos config`](#configure-the-program) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
+Once the plug-in is installed, you can configure the plug-in by using the [`ibmcloud cos config`](#configure-the-program) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
 
 The program also offers the ability for you to set the default local directory for downloaded files, and to set a default region. To set the default download location, type `ibmcloud cos config ddl` and input into the program a valid file path. To set a default region, type `ibmcloud cos config region` and provide an input into the program a region code, such as `us-south`. By default, this value is set to `us-geo`.
 
@@ -186,7 +186,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 {: #ic-create-bucket}
 * **Action:** Create a bucket in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos create-bucket --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--json]`
-	* Note that you must provide a CRN if you are using IAM authentication. This can be set using the [`ibmcloud cos config crn`](#configure-the-program) command.
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -306,7 +306,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-### Download objects using S3Manager
+### Download objects by using S3Manager
 {: #ic-download-s3manager}
 * **Action:** Download objects from S3 concurrently.
 * **Usage:** `ibmcloud cos download --bucket BUCKET_NAME --key KEY [--concurrency value] [--part-size SIZE] [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
@@ -466,7 +466,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 {: #ic-list-buckets}
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos list-buckets [--ibm-service-instance-id ID] [--json]`
-	* Note that you must provide a CRN if you are using IAM authentication. This can be set using the [`ibmcloud cos config crn`](#configure-the-program) command.
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
 * **Parameters to provide:**
   * No parameters to provide.
 	* _Optional_: Sets the IBM Service Instance ID in the request.
@@ -478,7 +478,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 {: #ic-extended-bucket-listing}
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos list-buckets-extended [--ibm-service-instance-id ID] [--marker KEY] [--prefix PREFIX] [--page-size SIZE] [--max-items NUMBER] [--json] `
-	* Note that you must provide a CRN if you are using IAM authentication. This can be set using the [`ibmcloud cos config crn`](#configure-the-program) command.
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
 * **Parameters to provide:**
   * No parameters to provide.
 	* _Optional_: Sets the IBM Service Instance ID in the request.
@@ -633,7 +633,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-### Upload objects using S3Manager
+### Upload objects by using S3Manager
 {: #ic-upload-s3manager}
 * **Action:** Upload objects from S3 concurrently.
 * **Usage:** `ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency value] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--json]`
