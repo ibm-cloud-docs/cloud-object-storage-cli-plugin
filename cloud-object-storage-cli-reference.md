@@ -30,7 +30,7 @@ Install the plug-in by using the `plugin install` command.
 ibmcloud plugin install cloud-object-storage
 ```
 
-Once the plug-in is installed, you can configure the plug-in using the [`ibmcloud cos config`](#configure-the-program) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication etc.
+Once the plug-in is installed, you can configure the plug-in using the [`ibmcloud cos config`](#configure-the-program) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
 
 The program also offers the ability for you to set the default local directory for downloaded files, and to set a default region. To set the default download location, type `ibmcloud cos config ddl` and input into the program a valid file path. To set a default region, type `ibmcloud cos config region` and provide an input into the program a region code, such as `us-south`. By default, this value is set to `us-geo`.
 
