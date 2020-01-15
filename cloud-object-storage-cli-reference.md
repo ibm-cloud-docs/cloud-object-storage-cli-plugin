@@ -1,17 +1,30 @@
 ---
 
 copyright:
-  years: 2017, 2018, 2019
-lastupdated: "22-01-2019"
+  years: 2017, 2020
+lastupdated: "2020-01-15"
+
+
+keywords: faq, frequently asked questions, object storage
+
+subcollection: cloud-object-storage-cli
 
 ---
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
+{:important: .important}
 {:note: .note}
+{:download: .download} 
+{:http: .ph data-hd-programlang='http'} 
+{:javascript: .ph data-hd-programlang='javascript'} 
+{:java: .ph data-hd-programlang='java'} 
+{:python: .ph data-hd-programlang='python'}
+{:faq: data-hd-content-type='faq'}
+{:support: data-reuse='support'}
 
 # IBM Cloud Object Storage CLI
 {: #ic-cos-cli}
