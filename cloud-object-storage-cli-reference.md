@@ -30,7 +30,7 @@ subcollection: cloud-object-storage-cli
 {: #ic-cos-cli}
 
 The {{site.data.keyword.cos_full}} plug-in extends the {{site.data.keyword.cloud_notm}} command line interface (CLI) with an API wrapper for working with Object Storage resources.
-{: .shortdesc}
+{: shortdesc}
 
 ## Installation and configuration
 {: #ic-installation}
