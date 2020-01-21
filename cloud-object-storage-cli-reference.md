@@ -181,7 +181,21 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--copy-source-if-none-match ETAG`
 	* _Optional_: Copies the object if it hasn't been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-unmodified-since TIMESTAMP`
-	* _Optional_: A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
+	* _Optional_: A MAP of metadata to store. 
+   JSON Syntax: 
+The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+
+```
+{
+  "file_name": "file_20xxxxxxxxxxxx45.zip",
+  "label": "texas",
+  "state": "Texas",
+  "Date_to": "2019-11-09T16:00:00.000Z",
+  "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+  "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+}
+```
+
 		* Flag: `--metadata MAP`
 	* _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. DIRECTIVE values: COPY,REPLACE.
 		* Flag: ` --metadata-directive DIRECTIVE`
@@ -675,19 +689,19 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store. 
-   JSON Syntax: 
-   The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+    JSON Syntax: 
+    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
 
-```
-{
-   "file_name": "file_20xxxxxxxxxxxx45.zip",
-   "label": "texas",
-   "state": "Texas",
-   "Date_to": "2019-11-09T16:00:00.000Z",
-   "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
-   "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
-}
-```
+   ```
+   {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+   }
+   ```
 
 		* Flag: `--metadata MAP`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
