@@ -81,6 +81,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## Abort a multipart upload
 {: #ic-abort-multipart-upload}
+
 * **Action:** Abort a multipart upload instance by ending the upload to the bucket in the user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos abort-multipart-upload --bucket BUCKET_NAME --key KEY --upload-id ID [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -99,6 +100,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## Complete a multipart upload
 {: #ic-complete-multipart-upload}
+
 * **Action:** Complete a multipart upload instance by assembling the currently uploaded parts and uploading the file to the bucket in the user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos complete-multipart-upload --bucket BUCKET_NAME --key KEY --upload-id ID --multipart-upload STRUCTURE [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -135,6 +137,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## Configure the Program
 {: #ic-config}
+
 * **Action:** Configure the program's preferences.
 * **Usage:** `ibmcloud cos config [COMMAND]`
 * **Commands:**
