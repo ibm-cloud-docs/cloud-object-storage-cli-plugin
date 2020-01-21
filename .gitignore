@@ -1,0 +1,10 @@
+outdated/
+not-yet/
+scratch/
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+.vscode/
+.vscode/*
+.idea
+.idea/*
