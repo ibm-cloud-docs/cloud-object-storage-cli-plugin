@@ -196,12 +196,12 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 }
 ```
 
-		* Flag: `--metadata MAP`
-	* _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. DIRECTIVE values: COPY,REPLACE.
+       * Flag: `--metadata MAP`
+   * _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. DIRECTIVE values: COPY,REPLACE.
 		* Flag: ` --metadata-directive DIRECTIVE`
-	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
+   * _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
 ## Create a new bucket
@@ -242,10 +242,24 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
 	* _Optional_:  A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
+      JSON Syntax: 
+      The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+
+   ```
+   {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+   }
+   ```
+
 		* Flag: `--metadata MAP`
-	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
+   * _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
 ## Delete an existing bucket
@@ -648,6 +662,19 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
+    JSON Syntax: 
+    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+
+   ```
+   {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+   }
+   ```
 		* Flag: `--metadata MAP`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
@@ -703,11 +730,11 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
    }
    ```
 
-		* Flag: `--metadata MAP`
+	   * Flag: `--metadata MAP`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
-		* Flag: `--region REGION`
+	   * Flag: `--region REGION`
 	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	   * Flag: `--json`
 
 ## Manually controlling multipart uploads
 {: #ic-manual-multipart-uploads}
