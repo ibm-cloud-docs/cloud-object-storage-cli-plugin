@@ -254,7 +254,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
         "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
       }
       ```
-		
+
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
    * _Optional_: Output returned in raw JSON format.
