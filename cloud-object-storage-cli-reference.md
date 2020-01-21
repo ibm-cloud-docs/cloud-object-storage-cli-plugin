@@ -2,10 +2,9 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-15"
+lastupdated: "2020-01-21"
 
-
-keywords: faq, frequently asked questions, object storage
+keywords: cli, command line reference, object storage
 
 subcollection: cloud-object-storage-cli
 
@@ -96,8 +95,6 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
-
 ## Complete a multipart upload
 {: #ic-complete-multipart-upload}
 
@@ -133,8 +130,6 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
-
 ## Configure the Program
 {: #ic-config}
 
@@ -156,10 +151,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* Switch between VHost and Path URL style.
 		* Command: `url-style`
 
-
-
 ## Copy object from bucket
 {: #ic-copy-object}
+
 * **Action:** Copy an object from source bucket to destination bucket.
 * **Usage:** `ibmcloud cos copy-object --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -196,10 +190,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
-
 ## Create a new bucket
 {: #ic-create-bucket}
+
 * **Action:** Create a bucket in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos create-bucket --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--json]`
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
@@ -214,8 +207,6 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--region REGION`
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
-
-
 
 ## Create a new multipart upload
 {: #ic-create-multipart-upload}
@@ -243,8 +234,6 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
-
 ## Delete an existing bucket
 {: #ic-delete-bucket}
 
@@ -260,9 +249,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
     * _Optional_: Output returned in raw JSON format.
        * Flag: `--json`
 
-
 ## Delete bucket CORS
 {: #ic-delete-bucket-cors}
+
 * **Action:** Delete CORS configuration on a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos delete-bucket-cors --bucket BUCKET_NAME [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -273,9 +262,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
 ## Delete an object
 {: #ic-delete-object}
+
 * **Action:** Delete an object from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos delete-object --bucket BUCKET_NAME --key KEY [--region REGION] [--force] [--json]`
 * **Parameters to provide:**
@@ -290,9 +279,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
 ## Delete multiple objects
 {: #ic-delete-objects}
+
 * **Action:** Delete multiple objects from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos delete-objects --bucket BUCKET_NAME --delete STRUCTURE [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -324,6 +313,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ### Download objects by using S3Manager
 {: #ic-download-s3manager}
+
 * **Action:** Download objects from S3 concurrently.
 * **Usage:** `ibmcloud cos download --bucket BUCKET_NAME --key KEY [--concurrency value] [--part-size SIZE] [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
 * **Parameters to provide:**
@@ -363,9 +353,10 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--json`
 	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
 		* Parameter: `OUTFILE`
-		* 
+
 ## Get a bucket's class
 {: #ic-bucket-class}
+
 * **Action:** Determine the class of a bucket in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos get-bucket-class --bucket BUCKET_NAME [--json]`
 * **Parameters to provide:**
@@ -374,9 +365,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
 ## Get bucket CORS
 {: #ic-get-bucket-cors}
+
 * **Action:** Returns the CORS configuration for the bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos get-bucket-cors --bucket BUCKET_NAME [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -387,10 +378,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
   * _Optional_: Output returned in raw JSON format.
     * Flag: `--json`
 
-
-
 ## Find a bucket
 {: #ic-find-bucket}
+
 * **Action:** Determine the region and class of a bucket in an IBM Cloud Object Storage instance. 
 * **Usage:** `ibmcloud cos get-bucket-location --bucket BUCKET_NAME [--json]`
 * **Parameters to provide:**
@@ -399,10 +389,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 	
-
-
 ## Download an object
 {: #ic-download-object}
+
 * **Action:** Download an object from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos get-object --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
 * **Parameters to provide:**
@@ -439,10 +428,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
 		* Parameter: `OUTFILE`
 
-
-
 ## Get a bucket's headers
 {: #ic-bucket-header}
+
 * **Action:** Determine if a bucket exists in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos head-bucket --bucket BUCKET_NAME [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -453,9 +441,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
 ## Get an object's headers
 {: #ic-object-header}
+
 * **Action:** Determine if a file exists in a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos head-object --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -480,6 +468,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## List all buckets
 {: #ic-list-buckets}
+
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos list-buckets [--ibm-service-instance-id ID] [--json]`
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
@@ -492,6 +481,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ### Extended Bucket Listing
 {: #ic-extended-bucket-listing}
+
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos list-buckets-extended [--ibm-service-instance-id ID] [--marker KEY] [--prefix PREFIX] [--page-size SIZE] [--max-items NUMBER] [--json] `
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
@@ -512,6 +502,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## List in-progress multipart uploads
 {: #ic-list-multipart-uploads}
+
 * **Action:** Lists in-progress multipart uploads.
 * **Usage:** `ibmcloud cos list-multipart-uploads --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--key-marker value] [--upload-id-marker value] [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -538,6 +529,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## List objects
 {: #ic-list-objects}
+
 * **Action:** List files present in a bucket in a user's IBM Cloud Object Storage Account.  This operation is currently limited to the 1000 most recently created objects and can't be filtered.
 * **Usage:** `ibmcloud cos list-objects --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--starting-token TOKEN] [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -562,6 +554,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ## List parts
 {: #ic-list-parts}
+
 * **Action:** Print out information about an in progress multipart upload instance.
 * **Usage:** `ibmcloud cos list-parts --bucket BUCKET_NAME --key KEY --upload-id ID --part-number-marker VALUE [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -582,9 +575,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
 ## Set bucket CORS
 {: #ic-set-bucket-cors}
+
 * **Action:** Sets the CORS configuration for a bucket in the user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos put-bucket-cors --bucket BUCKET_NAME [--cors-configuration STRUCTURE] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -614,11 +607,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
-
-
 ## Put object
 {: #ic-upload-object}
+
 * **Action:** Upload an object to a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos put-object --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -651,6 +642,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 ### Upload objects by using S3Manager
 {: #ic-upload-s3manager}
+
 * **Action:** Upload objects from S3 concurrently.
 * **Usage:** `ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency value] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -682,7 +674,21 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--content-md5 MD5`
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
-	* _Optional_: A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
+	* _Optional_: A MAP of metadata to store. 
+   JSON Syntax: 
+   The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+
+```
+{
+   "file_name": "file_20xxxxxxxxxxxx45.zip",
+   "label": "texas",
+   "state": "Texas",
+   "Date_to": "2019-11-09T16:00:00.000Z",
+   "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+   "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+}
+```
+
 		* Flag: `--metadata MAP`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
 		* Flag: `--region REGION`
@@ -723,6 +729,7 @@ To see the status of your multipart upload instance, you can always run the `par
 
 ### Upload a part
 {: #ic-upload-part}
+
 * **Action:** Upload a part of a file in an existing multipart upload instance.
 * **Usage:** `ibmcloud cos upload-part --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER [--body FILE_PATH] [--region REGION] [--json]`
 	* Note that you must save each uploaded file part's number and ETag (which the CLI will print for you) for each part into a JSON file. Refer to the "Multipart Upload Guide" below for more information.
@@ -742,9 +749,9 @@ To see the status of your multipart upload instance, you can always run the `par
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-
 ### Upload a part copy
 {: #ic-upload-a-part-copy}
+
 * **Action:** Upload a part by copying data from an existing object.
 * **Usage:** `ibmcloud cos upload-part-copy --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER --copy-source SOURCE [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--copy-source-range value] [--region REGION] [--json]`
 	* Note that you must save each uploaded file part's number and ETag (which the CLI will print for you) for each part into a JSON file. Refer to the "Multipart Upload Guide" for more information.
@@ -776,6 +783,7 @@ To see the status of your multipart upload instance, you can always run the `par
 
 ## Wait
 {: #ic-wait}
+
 * **Action:** Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met.
 * **Usage:** `ibmcloud cos wait command [arguments...] [command options]`
 * **Commands:**
@@ -787,3 +795,8 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Wait until 200 response is received when polling with head-object. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
 	* `object-not-exists`
 		* Wait until 404 response is received when polling with head-object. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
+
+## Next Steps
+{: #cli-ref-next-steps}
+
+As every procedure always goes exactly as planned, you might not have seen any of the [common header and error codes](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-common). For more reference, check the [API reference](/apidocs/cos/cos-compatibility).
