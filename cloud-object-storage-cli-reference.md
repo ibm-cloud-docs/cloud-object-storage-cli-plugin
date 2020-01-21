@@ -54,7 +54,7 @@ You can view your current Cloud Object Storage credentials by prompting `ibmclou
 If you are using IAM authentication, then you then you must provide a CRN to use some of the commands. To set the CRN, you can type `ibmcloud cos config crn` and provide your CRN. To retrieve the CRN you can type `ibmcloud resource service-instance <INSTANCE_NAME> --id`, replace `<INSTANCE_NAME>` with the unique alias that you assigned to your service instance.  The following truncated example shows the CLI output.
 
 ```
-crn:v1:bluemix:public:kms:us-south:a/f047b55a3362ac06afad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901:: 42454b3b-5b06-407b-a4b3-34d9ef323901
+crn:v1:bluemix:public:kms:us-south:a/f047b55a3362xxxxxxfad8a3f2f5586ea:42454b3b-5b06-407b-a4b3-34d9ef323901::42454b3b-5b06-407b-a4b3-34d9ef323901
 ```
 The `42454b3b-5b06-407b-a4b3-34d9ef323901` value is an example instance ID.
 
@@ -182,8 +182,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Copies the object if it hasn't been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-unmodified-since TIMESTAMP`
 	* _Optional_: A MAP of metadata to store. 
-   JSON Syntax: 
-The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+	    * Flag: `--metadata MAP`
+      JSON Syntax: 
+      The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
 
 ```
 {
@@ -196,7 +197,6 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 }
 ```
 
-       * Flag: `--metadata MAP`
    * _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. DIRECTIVE values: COPY,REPLACE.
 		* Flag: ` --metadata-directive DIRECTIVE`
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
@@ -241,9 +241,10 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 		* Flag: `--content-language LANGUAGE`
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
-	* _Optional_:  A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
-      JSON Syntax: 
-      The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+	* _Optional_: A MAP of metadata to store. 
+	    * Flag: `--metadata MAP`
+       JSON Syntax: 
+       The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
 
    ```
    {
@@ -255,8 +256,7 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
       "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
    }
    ```
-
-		* Flag: `--metadata MAP`
+		
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
    * _Optional_: Output returned in raw JSON format.
@@ -661,9 +661,10 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 		* Flag: `--content-md5 MD5`
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
-	* _Optional_: A MAP of metadata to store. Syntax: KeyName1=string,KeyName2=string
-    JSON Syntax: 
-    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+	* _Optional_: A MAP of metadata to store.
+	    * Flag: `--metadata MAP`
+       JSON Syntax: 
+       The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
 
    ```
    {
@@ -675,7 +676,7 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
       "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
    }
    ```
-		* Flag: `--metadata MAP`
+
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
 	* _Optional_: Output returned in raw JSON format.
@@ -716,8 +717,9 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store. 
-    JSON Syntax: 
-    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+	    * Flag: `--metadata MAP`
+      JSON Syntax: 
+      The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
 
    ```
    {
@@ -730,7 +732,6 @@ The `--metadata` flag takes the `file://` prefix that is used to load the JSON s
    }
    ```
 
-	   * Flag: `--metadata MAP`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
 	   * Flag: `--region REGION`
 	* _Optional_: Output returned in raw JSON format.
