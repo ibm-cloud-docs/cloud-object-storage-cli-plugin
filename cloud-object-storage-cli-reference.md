@@ -154,6 +154,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 ## Copy object from bucket
 {: #ic-copy-object}
 
+If you want to add metadata to an object during the copying (using the `--metadata` feature), you must add the attribute `--metadata-directive REPLACE` as metadata is copied during the operation by default (an implicit `--metadata-directive COPY`).
+{: important}
+
 * **Action:** Copy an object from source bucket to destination bucket.
 * **Usage:** `ibmcloud cos copy-object --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION] [--json]`
 * **Parameters to provide:**
