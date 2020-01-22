@@ -154,6 +154,9 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 ## Copy object from bucket
 {: #ic-copy-object}
 
+If you want to add metadata to an object during the copying (using the `--metadata` feature), you must add the attribute `--metadata-directive REPLACE` as metadata is copied during the operation by default (an implicit `--metadata-directive COPY`).
+{: important}
+
 * **Action:** Copy an object from source bucket to destination bucket.
 * **Usage:** `ibmcloud cos copy-object --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION] [--json]`
 * **Parameters to provide:**
@@ -183,19 +186,18 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--copy-source-if-unmodified-since TIMESTAMP`
 	* _Optional_: A MAP of metadata to store. 
 	    * Flag: `--metadata MAP`
-        * JSON Syntax: The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
-
-  ```
-  {
-    "file_name": "file_20xxxxxxxxxxxx45.zip",
-    "label": "texas",
-    "state": "Texas",
-    "Date_to": "2019-11-09T16:00:00.000Z",
-    "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
-    "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
-  }
-  ```
-
+    JSON Syntax: 
+    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+    ```
+    {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+    }
+    ```
    * _Optional_: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. DIRECTIVE values: COPY,REPLACE.
 		* Flag: ` --metadata-directive DIRECTIVE`
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
@@ -242,19 +244,18 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store. 
 	    * Flag: `--metadata MAP`
-        * JSON Syntax: The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
-
-  ```
-  {
-    "file_name": "file_20xxxxxxxxxxxx45.zip",
-    "label": "texas",
-    "state": "Texas",
-    "Date_to": "2019-11-09T16:00:00.000Z",
-    "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
-    "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
-  }
-  ```
-
+    JSON Syntax: 
+    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+    ```
+    {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+    }
+    ```
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
    * _Optional_: Output returned in raw JSON format.
@@ -661,19 +662,18 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store.
 	    * Flag: `--metadata MAP`
-        * JSON Syntax: The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
-
-  ```
-  {
-    "file_name": "file_20xxxxxxxxxxxx45.zip",
-    "label": "texas",
-    "state": "Texas",
-    "Date_to": "2019-11-09T16:00:00.000Z",
-    "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
-    "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
-  }
-  ```
-
+    JSON Syntax: 
+    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+    ```
+    {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+    }
+    ```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
 	* _Optional_: Output returned in raw JSON format.
@@ -715,19 +715,18 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store. 
 	    * Flag: `--metadata MAP`
-        * JSON Syntax: The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
-
-  ```
-  {
-    "file_name": "file_20xxxxxxxxxxxx45.zip",
-    "label": "texas",
-    "state": "Texas",
-    "Date_to": "2019-11-09T16:00:00.000Z",
-    "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
-    "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
-  }
-  ```
-
+    JSON Syntax: 
+    The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
+    ```
+    {
+      "file_name": "file_20xxxxxxxxxxxx45.zip",
+      "label": "texas",
+      "state": "Texas",
+      "Date_to": "2019-11-09T16:00:00.000Z",
+      "Sha256sum": "9e39dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx8ce6b68ede3a47",
+      "Timestamp": "Thu, 17 Oct 2019 09:22:13 GMT"
+    }
+    ```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
 	   * Flag: `--region REGION`
 	* _Optional_: Output returned in raw JSON format.
