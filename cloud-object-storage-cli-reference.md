@@ -34,7 +34,7 @@ The {{site.data.keyword.cos_full}} plug-in extends the {{site.data.keyword.cloud
 ## Installation and configuration
 {: #ic-installation}
 
-The plug-in is compatible with Windows, Linux, and macOS operating systems that run on 64-bit processors.
+The plug-in is compatible with Windows, Linux, and macOS platforms that run on 64-bit processors.
 
 Install the plug-in by using the `plugin install` command.
 
