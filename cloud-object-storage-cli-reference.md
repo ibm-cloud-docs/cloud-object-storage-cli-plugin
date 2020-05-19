@@ -6,7 +6,7 @@ lastupdated: "2020-01-21"
 
 keywords: cli, command line reference, object storage
 
-subcollection: cloud-object-storage-cli
+subcollection: cloud-object-storage-cli-plugin
 
 ---
 {:external: target="_blank" .external}
