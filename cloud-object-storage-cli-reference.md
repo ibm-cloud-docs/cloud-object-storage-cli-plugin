@@ -854,21 +854,6 @@ To see the status of your multipart upload instance, you can always run the `par
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
-## Wait
-{: #ic-wait}
-
-* **Action:** Wait until a particular condition is satisfied. Each subcommand polls an API until the listed requirement is met.
-* **Usage:** `ibmcloud cos wait command [arguments...] [command options]`
-* **Commands:**
-    * `bucket-exists`
-  		* Wait until 200 response is received when polling with head-bucket. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
-	* `bucket-not-exists`
-		* Wait until 404 response is received when polling with head-bucket. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
-	* `object-exists`
-		* Wait until 200 response is received when polling with head-object. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
-	* `object-not-exists`
-		* Wait until 404 response is received when polling with head-object. It polls every 5 seconds until a successful state has been reached. This will exit with a return code of 255 after 20 failed checks.
-
 ## Next Steps
 {: #cli-ref-next-steps}
 
