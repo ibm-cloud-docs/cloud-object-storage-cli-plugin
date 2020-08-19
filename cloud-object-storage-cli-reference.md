@@ -186,6 +186,12 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Command: `region`
 	* Switch between VHost and Path URL style.
 		* Command: `url-style`
+    * Set Default Service Endpoint.
+        * Command: `endpoint-url`
+          * Parameters: 
+            *  `--list` displays what the current default Service Endpoint is set to. If it has not been set, will be empty.
+            *  `--url some.end.point.url` will change the Service Endpoint to what ever has been given, and update the region accordingly.
+            *  `--clear` removes the default Service Endpoint URL that has been set.
 
 ## Copy object from bucket
 {: #ic-copy-object}
