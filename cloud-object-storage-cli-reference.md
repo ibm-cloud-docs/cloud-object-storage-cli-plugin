@@ -189,8 +189,8 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
     * Set Default Service Endpoint.
         * Command: `endpoint-url`
           * Parameters: 
-            *  `--list` displays what the current default Service Endpoint is set to. If it has not been set, will be empty.
-            *  `--url some.end.point.url` will change the Service Endpoint to what ever has been given, and update the region accordingly.
+            *  `--list` displays the current default Service Endpoint, if it has been set. Otherwise, it will be empty.
+            *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
             *  `--clear` removes the default Service Endpoint URL that has been set.
 
 ## Copy object from bucket
