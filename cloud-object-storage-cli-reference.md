@@ -380,6 +380,45 @@ If you want to add metadata to an object during the copying (using the `--metada
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 
+## Download an object
+{: #ic-download-object}
+
+* **Action:** Download an object from a bucket in a user's IBM Cloud Object Storage account.
+* **Usage:** `ibmcloud cos object-get --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
+* **Parameters to provide:**
+    * The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* _Optional_: Return the object only if its entity tag (ETag) is the same as the ETAG specified, otherwise return a 412 (precondition failed).
+		* Flag: `--if-match ETAG`
+	* _Optional_: Return the object only if it has been modified since the specified TIMESTAMP, otherwise return a 304 (not modified).
+		* Flag: `--if-modified-since TIMESTAMP`
+	* _Optional_: Return the object only if its entity tag (ETag) is different from the ETAG specified, otherwise return a 304 (not modified).
+		* Flag: `--if-none-match ETAG`
+	* _Optional_: Return the object only if it has not been modified since the specified TIMESTAMP, otherwise return a 412 (precondition failed).
+		* Flag: `--if-unmodified-since TIMESTAMP`
+	* _Optional_: Downloads the specified RANGE bytes of an object.
+		* Flag: `--range RANGE`
+	* _Optional_: Sets the Cache-Control HEADER of the response.
+		* Flag: `--response-cache-control HEADER`
+	* _Optional_: Sets the Content-Disposition HEADER of the response.
+		* Flag: `--response-content-disposition HEADER`
+	* _Optional_: Sets the Content-Encoding HEADER of the response.
+		* Flag: `--response-content-encoding HEADER`
+	* _Optional_: Sets the Content-Language HEADER of the response.
+		* Flag: `--response-content-language HEADER`
+	* _Optional_: Sets the Content-Type HEADER of the response.
+		* Flag: `--response-content-type HEADER`
+	* _Optional_: Sets the Expires HEADER of the response.
+		* Flag: `--response-expires HEADER`
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output returned in raw JSON format.
+		* Flag: `--json`
+	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
+		* Parameter: `OUTFILE`
+
 ### Download objects by using S3Manager
 {: #ic-download-s3manager}
 
@@ -458,45 +497,6 @@ If you want to add metadata to an object during the copying (using the `--metada
 	* _Optional_: Output returned in raw JSON format.
 		* Flag: `--json`
 	
-## Download an object
-{: #ic-download-object}
-
-* **Action:** Download an object from a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos object-get --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
-* **Parameters to provide:**
-    * The name of the bucket.
-		* Flag: `--bucket BUCKET_NAME`
-	* The KEY of the object.
-		* Flag: `--key KEY`
-	* _Optional_: Return the object only if its entity tag (ETag) is the same as the ETAG specified, otherwise return a 412 (precondition failed).
-		* Flag: `--if-match ETAG`
-	* _Optional_: Return the object only if it has been modified since the specified TIMESTAMP, otherwise return a 304 (not modified).
-		* Flag: `--if-modified-since TIMESTAMP`
-	* _Optional_: Return the object only if its entity tag (ETag) is different from the ETAG specified, otherwise return a 304 (not modified).
-		* Flag: `--if-none-match ETAG`
-	* _Optional_: Return the object only if it has not been modified since the specified TIMESTAMP, otherwise return a 412 (precondition failed).
-		* Flag: `--if-unmodified-since TIMESTAMP`
-	* _Optional_: Downloads the specified RANGE bytes of an object.
-		* Flag: `--range RANGE`
-	* _Optional_: Sets the Cache-Control HEADER of the response.
-		* Flag: `--response-cache-control HEADER`
-	* _Optional_: Sets the Content-Disposition HEADER of the response.
-		* Flag: `--response-content-disposition HEADER`
-	* _Optional_: Sets the Content-Encoding HEADER of the response.
-		* Flag: `--response-content-encoding HEADER`
-	* _Optional_: Sets the Content-Language HEADER of the response.
-		* Flag: `--response-content-language HEADER`
-	* _Optional_: Sets the Content-Type HEADER of the response.
-		* Flag: `--response-content-type HEADER`
-	* _Optional_: Sets the Expires HEADER of the response.
-		* Flag: `--response-expires HEADER`
-	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
-		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
-	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
-		* Parameter: `OUTFILE`
-
 ## Get a bucket's headers
 {: #ic-bucket-header}
 
