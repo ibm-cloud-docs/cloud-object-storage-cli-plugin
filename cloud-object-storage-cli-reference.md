@@ -462,6 +462,17 @@ If you want to add metadata to an object during the copying (using the `--metada
 	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
 		* Parameter: `OUTFILE`
 
+## Find a bucket
+{: #ic-find-bucket}
+
+* **Action:** Determine the region and class of a bucket in an IBM Cloud Object Storage instance. 
+* **Usage:** `ibmcloud cos bucket-location-get --bucket BUCKET_NAME [--json]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* _Optional_: Output returned in raw JSON format.
+		* Flag: `--json`
+
 ## Get a bucket's class
 {: #ic-bucket-class}
 
@@ -485,17 +496,6 @@ If you want to add metadata to an object during the copying (using the `--metada
     * Flag: `--region REGION`
   * _Optional_: Output returned in raw JSON format.
     * Flag: `--json`
-
-## Find a bucket
-{: #ic-find-bucket}
-
-* **Action:** Determine the region and class of a bucket in an IBM Cloud Object Storage instance. 
-* **Usage:** `ibmcloud cos bucket-location-get --bucket BUCKET_NAME [--json]`
-* **Parameters to provide:**
-	* The name of the bucket.
-		* Flag: `--bucket BUCKET_NAME`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
 	
 ## Get a bucket's headers
 {: #ic-bucket-header}
