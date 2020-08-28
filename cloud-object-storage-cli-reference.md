@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-08-25"
 
 keywords: cli, command line reference, object storage
 
@@ -118,7 +118,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 {: #ic-abort-multipart-upload}
 
 * **Action:** Abort a multipart upload instance by ending the upload to the bucket in the user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos multipart-upload-abort --bucket BUCKET_NAME --key KEY --upload-id ID [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos multipart-upload-abort --bucket BUCKET_NAME --key KEY --upload-id ID [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -128,14 +128,14 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		* Flag: `--upload-id ID`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Complete a multipart upload
 {: #ic-complete-multipart-upload}
 
 * **Action:** Complete a multipart upload instance by assembling the currently uploaded parts and uploading the file to the bucket in the user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos multipart-upload-complete --bucket BUCKET_NAME --key KEY --upload-id ID --multipart-upload STRUCTURE [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos multipart-upload-complete --bucket BUCKET_NAME --key KEY --upload-id ID --multipart-upload STRUCTURE [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -163,8 +163,8 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 		```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Configure the Program
 {: #ic-config}
@@ -200,7 +200,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 {: important}
 
 * **Action:** Copy an object from source bucket to destination bucket.
-* **Usage:** `ibmcloud cos object-copy --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos object-copy --bucket BUCKET_NAME --key KEY --copy-source SOURCE [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--metadata MAP] [--metadata-directive DIRECTIVE] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the destination bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -244,14 +244,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: ` --metadata-directive DIRECTIVE`
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-   * _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+   * _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Create a new bucket
 {: #ic-create-bucket}
 
 * **Action:** Create a bucket in an IBM Cloud Object Storage instance.
-* **Usage:** `ibmcloud cos bucket-create --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos bucket-create --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--output FORMAT]`
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
 * **Parameters to provide:**
     * The name of the bucket.
@@ -262,13 +262,13 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--ibm-service-instance-id ID`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Create a new multipart upload
 {: #ic-create-multipart-upload}
 * **Action:** Begin the multipart file upload process by creating a new multipart upload instance.
-* **Usage:** `ibmcloud cos multipart-upload-create --bucket BUCKET_NAME --key KEY [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--metadata MAP] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos multipart-upload-create --bucket BUCKET_NAME --key KEY [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-type MIME] [--metadata MAP] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -300,14 +300,14 @@ If you want to add metadata to an object during the copying (using the `--metada
     ```
    * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-   * _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+   * _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Delete an existing bucket
 {: #ic-delete-bucket}
 
 * **Action:** Delete an existing bucket in an IBM Cloud Object Storage instance.
-* **Usage:** `ibmcloud cos bucket-delete --bucket BUCKET_NAME [--region REGION] [--force] [--json]`
+* **Usage:** `ibmcloud cos bucket-delete --bucket BUCKET_NAME [--region REGION] [--force] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -315,27 +315,27 @@ If you want to add metadata to an object during the copying (using the `--metada
        * Flag: `--region REGION`
     * _Optional_: The operation will do not ask for confirmation.
        * Flag: `--force`
-    * _Optional_: Output returned in raw JSON format.
-       * Flag: `--json`
+    * _Optional_: Output FORMAT can be only json or text.
+       * Flag: `--output FORMAT`
 
 ## Delete bucket CORS
 {: #ic-delete-bucket-cors}
 
 * **Action:** Delete CORS configuration on a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos bucket-cors-delete --bucket BUCKET_NAME [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos bucket-cors-delete --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Delete an object
 {: #ic-delete-object}
 
 * **Action:** Delete an object from a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos object-delete --bucket BUCKET_NAME --key KEY [--region REGION] [--force] [--json]`
+* **Usage:** `ibmcloud cos object-delete --bucket BUCKET_NAME --key KEY [--region REGION] [--force] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -345,14 +345,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--region REGION`
   * _Optional_: The operation will do not ask for confirmation.
   	* Flag: `--force`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Delete multiple objects
 {: #ic-delete-objects}
 
 * **Action:** Delete multiple objects from a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos objects-delete --bucket BUCKET_NAME --delete STRUCTURE [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos objects-delete --bucket BUCKET_NAME --delete STRUCTURE [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.  
 		* Flag: `--bucket BUCKET_NAME`  
@@ -377,14 +377,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 	```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Download an object
 {: #ic-download-object}
 
 * **Action:** Download an object from a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos object-get --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
+* **Usage:** `ibmcloud cos object-get --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--output FORMAT] [OUTFILE]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -414,8 +414,8 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--response-expires HEADER`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
 		* Parameter: `OUTFILE`
 
@@ -423,7 +423,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 {: #ic-download-s3manager}
 
 * **Action:** Download objects from S3 concurrently.
-* **Usage:** `ibmcloud cos download --bucket BUCKET_NAME --key KEY [--concurrency value] [--part-size SIZE] [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--json] [OUTFILE]`
+* **Usage:** `ibmcloud cos download --bucket BUCKET_NAME --key KEY [--concurrency value] [--part-size SIZE] [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--output FORMAT] [OUTFILE]`
 * **Parameters to provide:**
 	* The name (BUCKET_NAME) of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -457,8 +457,8 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--response-expires HEADER`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 	* _Optional_: The location where to save the content of the object. If this parameter is not provided, the program uses the default location.
 		* Parameter: `OUTFILE`
 
@@ -466,55 +466,55 @@ If you want to add metadata to an object during the copying (using the `--metada
 {: #ic-find-bucket}
 
 * **Action:** Determine the region and class of a bucket in an IBM Cloud Object Storage instance. 
-* **Usage:** `ibmcloud cos bucket-location-get --bucket BUCKET_NAME [--json]`
+* **Usage:** `ibmcloud cos bucket-location-get --bucket BUCKET_NAME [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Get a bucket's class
 {: #ic-bucket-class}
 
 * **Action:** Determine the class of a bucket in an IBM Cloud Object Storage instance.
-* **Usage:** `ibmcloud cos bucket-class-get --bucket BUCKET_NAME [--json]`
+* **Usage:** `ibmcloud cos bucket-class-get --bucket BUCKET_NAME [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Get bucket CORS
 {: #ic-get-bucket-cors}
 
 * **Action:** Returns the CORS configuration for the bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos bucket-cors-get --bucket BUCKET_NAME [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos bucket-cors-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
   * The name of the bucket.  
     * Flag: `--bucket BUCKET_NAME`
   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
     * Flag: `--region REGION`
-  * _Optional_: Output returned in raw JSON format.
-    * Flag: `--json`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
 	
 ## Get a bucket's headers
 {: #ic-bucket-header}
 
 * **Action:** Determine if a bucket exists in an IBM Cloud Object Storage instance.
-* **Usage:** `ibmcloud cos bucket-head --bucket BUCKET_NAME [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos bucket-head --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Get an object's headers
 {: #ic-object-header}
 
 * **Action:** Determine if a file exists in a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos object-head --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos object-head --bucket BUCKET_NAME --key KEY [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -532,27 +532,27 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--range RANGE`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## List all buckets
 {: #ic-list-buckets}
 
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
-* **Usage:** `ibmcloud cos buckets [--ibm-service-instance-id ID] [--json]`
+* **Usage:** `ibmcloud cos buckets [--ibm-service-instance-id ID] [--output FORMAT]`
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
 * **Parameters to provide:**
   * No parameters to provide.
 	* _Optional_: Sets the IBM Service Instance ID in the request.
 		* Flag: `--ibm-service-instance-id`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ### Extended Bucket Listing
 {: #ic-extended-bucket-listing}
 
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
-* **Usage:** `ibmcloud cos buckets-extended [--ibm-service-instance-id ID] [--marker KEY] [--prefix PREFIX] [--page-size SIZE] [--max-items NUMBER] [--json] `
+* **Usage:** `ibmcloud cos buckets-extended [--ibm-service-instance-id ID] [--marker KEY] [--prefix PREFIX] [--page-size SIZE] [--max-items NUMBER] [--output FORMAT] `
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
 * **Parameters to provide:**
   * No parameters to provide.
@@ -566,14 +566,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--page-size SIZE`
 	* _Optional_: The total NUMBER of items to return in the command's output.
 		* Flag: `--max-items NUMBER`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## List in-progress multipart uploads
 {: #ic-list-multipart-uploads}
 
 * **Action:** Lists in-progress multipart uploads.
-* **Usage:** `ibmcloud cos multipart-uploads --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--key-marker value] [--upload-id-marker value] [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos multipart-uploads --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--key-marker value] [--upload-id-marker value] [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -593,14 +593,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--max-items NUMBER`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## List objects
 {: #ic-list-objects}
 
 * **Action:** List files present in a bucket in a user's IBM Cloud Object Storage Account.  This operation is currently limited to the 1000 most recently created objects and can't be filtered.
-* **Usage:** `ibmcloud cos objects --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--starting-token TOKEN] [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos objects --bucket BUCKET_NAME [--delimiter DELIMITER] [--encoding-type METHOD] [--prefix PREFIX] [--starting-token TOKEN] [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -618,14 +618,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--max-items NUMBER`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## List parts
 {: #ic-list-parts}
 
 * **Action:** Print out information about an in progress multipart upload instance.
-* **Usage:** `ibmcloud cos parts --bucket BUCKET_NAME --key KEY --upload-id ID --part-number-marker VALUE [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos parts --bucket BUCKET_NAME --key KEY --upload-id ID --part-number-marker VALUE [--page-size SIZE] [--max-items NUMBER] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -641,14 +641,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--max-items NUMBER`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Set bucket CORS
 {: #ic-set-bucket-cors}
 
 * **Action:** Sets the CORS configuration for a bucket in the user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos bucket-cors-put --bucket BUCKET_NAME [--cors-configuration STRUCTURE] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos bucket-cors-put --bucket BUCKET_NAME [--cors-configuration STRUCTURE] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -673,14 +673,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 	```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Put object
 {: #ic-upload-object}
 
 * **Action:** Upload an object to a bucket in a user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos object-put --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos object-put --bucket BUCKET_NAME --key KEY [--body FILE_PATH] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -718,14 +718,14 @@ If you want to add metadata to an object during the copying (using the `--metada
     ```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ### Upload objects by using S3Manager
 {: #ic-upload-s3manager}
 
 * **Action:** Upload objects from S3 concurrently.
-* **Usage:** `ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency value] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency value] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name (BUCKET_NAME) of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -771,8 +771,8 @@ If you want to add metadata to an object during the copying (using the `--metada
     ```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program will use the default option specified in config.
 	   * Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-	   * Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+	   * Flag: `--output FORMAT`
 
 ## Manually controlling multipart uploads
 {: #ic-manual-multipart-uploads}
@@ -810,7 +810,7 @@ To see the status of your multipart upload instance, you can always run the `par
 {: #ic-upload-part}
 
 * **Action:** Upload a part of a file in an existing multipart upload instance.
-* **Usage:** `ibmcloud cos part-upload --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER [--body FILE_PATH] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos part-upload --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER [--body FILE_PATH] [--region REGION] [--output FORMAT]`
 	* Note that you must save each uploaded file part's number and ETag (which the CLI will print for you) for each part into a JSON file. Refer to the "Multipart Upload Guide" below for more information.
 * **Parameters to provide:**
 	* The bucket name where the multipart upload is taking place.
@@ -825,14 +825,14 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Flag: `--body FILE_PATH`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ### Upload a part copy
 {: #ic-upload-a-part-copy}
 
 * **Action:** Upload a part by copying data from an existing object.
-* **Usage:** `ibmcloud cos part-upload-copy --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER --copy-source SOURCE [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--copy-source-range value] [--region REGION] [--json]`
+* **Usage:** `ibmcloud cos part-upload-copy --bucket BUCKET_NAME --key KEY --upload-id ID --part-number NUMBER --copy-source SOURCE [--copy-source-if-match ETAG] [--copy-source-if-modified-since TIMESTAMP] [--copy-source-if-none-match ETAG] [--copy-source-if-unmodified-since TIMESTAMP] [--copy-source-range value] [--region REGION] [--output FORMAT]`
 	* Note that you must save each uploaded file part's number and ETag (which the CLI will print for you) for each part into a JSON file. Refer to the "Multipart Upload Guide" for more information.
 * **Parameters to provide:**
 	* The name of the bucket.
@@ -857,8 +857,8 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Flag: `--copy-source-range value`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
-	* _Optional_: Output returned in raw JSON format.
-		* Flag: `--json`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
 
 ## Next Steps
 {: #cli-ref-next-steps}
