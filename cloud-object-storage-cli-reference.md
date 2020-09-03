@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2020-09-04"
 
 keywords: cli, command line reference, object storage
 
@@ -724,7 +724,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 ### Upload objects by using S3Manager
 {: #ic-upload-s3manager}
 
-* **Action:** Upload objects from S3 concurrently.
+* **Action:** Upload objects to S3 concurrently.
 * **Usage:** `ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency value] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name (BUCKET_NAME) of the bucket.
