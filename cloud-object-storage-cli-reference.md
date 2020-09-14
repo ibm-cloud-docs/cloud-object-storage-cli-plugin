@@ -99,12 +99,12 @@ Alternatively, you might open the web-based console, select **Service credential
 ### HMAC Credentials
 {: #ic-hmac-credentials}
 
-If preferred, a [Service ID's HMAC credentials](/docs/services/cloud-object-storage?topic=cloud-object-storage-hmac) can be used instead of your API key. Run `ibmcloud cos config hmac` to input the HMAC credentials, and then switch the authorization method by using `ibmcloud cos config auth`.
+If preferred, a [Service ID's HMAC credentials](/docs/cloud-object-storage?topic=cloud-object-storage-uhc-hmac-credentials-main) can be used instead of your API key. Run `ibmcloud cos config hmac` to input the HMAC credentials, and then switch the authorization method by using `ibmcloud cos config auth`.
 
 If you choose to use token authentication with your own API key, you don't need to provide any credentials as the program authenticates you automatically.
 {: note}
 
-At any time, to switch between HMAC and IAM authentication, you can type `ibmcloud cos config auth`. For more information about authentication and authorization in IBM Cloud, see the [Identity and Access Management documentation](/docs/iam?topic=iam-iamoverview).
+At any time, to switch between HMAC and IAM authentication, you can type `ibmcloud cos config auth`. For more information about authentication and authorization in IBM Cloud, see the [Identity and Access Management documentation](/docs/account?topic=account-iamoverview).
 
 ## Command index
 {: #ic-command-index}
