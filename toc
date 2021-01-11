@@ -1,7 +1,11 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
+<<<<<<< HEAD
 {: .toc subcollection="cloud-object-storage-cli-plugin" audience="cli" href="/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-ic-cos-cli" path="cloud-object-storage-cli-plugin"}
+=======
+{: .toc subcollection="cloud-object-storage-cli-plugin" audience="cli" href="/docs/cloud-object-storage-cli-plugin?topic=cloud-object-storage-cli-plugin-reference" path="cloud-object-storage-cli-plugin"}
+>>>>>>> draft
 Cloud Object Storage CLI
 
     {: .navgroup id="reference"}

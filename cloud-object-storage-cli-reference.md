@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-08-25"
+lastupdated: "2021-01-04"
 
 keywords: cli, command line reference, object storage
 
@@ -28,7 +28,7 @@ subcollection: cloud-object-storage-cli-plugin
 # IBM Cloud Object Storage CLI
 {: #ic-cos-cli}
 
-The {{site.data.keyword.cos_full}} plug-in extends the {{site.data.keyword.cloud_notm}} command line interface (CLI) with an API wrapper for working with Object Storage resources.
+The {{site.data.keyword.cos_full}} plug-in extends the {{site.data.keyword.cloud_notm}} command line interface (CLI) with an API wrapper for working with object storage resources.
 {: shortdesc}
 
 ## Installation and configuration
@@ -99,12 +99,12 @@ Alternatively, you might open the web-based console, select **Service credential
 ### HMAC Credentials
 {: #ic-hmac-credentials}
 
-If preferred, a [Service ID's HMAC credentials](/docs/services/cloud-object-storage?topic=cloud-object-storage-hmac) can be used instead of your API key. Run `ibmcloud cos config hmac` to input the HMAC credentials, and then switch the authorization method by using `ibmcloud cos config auth`.
+If preferred, a [Service ID's HMAC credentials](/docs/cloud-object-storage?topic=cloud-object-storage-uhc-hmac-credentials-main) can be used instead of your API key. Run `ibmcloud cos config hmac` to input the HMAC credentials, and then switch the authorization method by using `ibmcloud cos config auth`.
 
 If you choose to use token authentication with your own API key, you don't need to provide any credentials as the program authenticates you automatically.
 {: note}
 
-At any time, to switch between HMAC and IAM authentication, you can type `ibmcloud cos config auth`. For more information about authentication and authorization in IBM Cloud, see the [Identity and Access Management documentation](/docs/iam?topic=iam-iamoverview).
+At any time, to switch between HMAC and IAM authentication, you can type `ibmcloud cos config auth`. For more information about authentication and authorization in IBM Cloud, see the [Identity and Access Management documentation](/docs/account?topic=account-iamoverview).
 
 ## Command index
 {: #ic-command-index}
@@ -724,7 +724,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 ### Upload objects by using S3Manager
 {: #ic-upload-s3manager}
 
-* **Action:** Upload objects from S3 concurrently.
+* **Action:** Upload objects to COS concurrently.
 * **Usage:** `ibmcloud cos upload --bucket BUCKET_NAME --key KEY --file PATH [--concurrency value] [--max-upload-parts PARTS] [--part-size SIZE] [--leave-parts-on-errors] [--cache-control CACHING_DIRECTIVES] [--content-disposition DIRECTIVES] [--content-encoding CONTENT_ENCODING] [--content-language LANGUAGE] [--content-length SIZE] [--content-md5 MD5] [--content-type MIME] [--metadata MAP] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name (BUCKET_NAME) of the bucket.
