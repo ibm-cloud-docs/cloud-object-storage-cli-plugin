@@ -42,8 +42,7 @@ Install the plug-in by using the `plugin install` command.
 ibmcloud plugin install cloud-object-storage
 ```
 
-Once the plug-in is installed, you can configure the plug-in by using the [`ibmcloud cos config`](#configure-the-program) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
-
+Once the plug-in is installed, you can configure the plug-in by using the [`ibmcloud cos config`](#ic-config) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
 
 
 The program also offers the ability for you to set the default local directory for downloaded files, and to set a default region. To set the default download location, type `ibmcloud cos config ddl` and input into the program a valid file path. To set a default region, type `ibmcloud cos config region` and provide an input into the program a region code, such as `us-south`. By default, this value is set to `us-geo`.
@@ -252,7 +251,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 
 * **Action:** Create a bucket in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos bucket-create --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--output FORMAT]`
-	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#ic-config) command.
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -540,7 +539,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos buckets [--ibm-service-instance-id ID] [--output FORMAT]`
-	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#ic-config) command.
 * **Parameters to provide:**
   * No parameters to provide.
 	* _Optional_: Sets the IBM Service Instance ID in the request.
@@ -553,7 +552,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 
 * **Action:** Print a list of all the buckets in a user's IBM Cloud Object Storage account. Buckets might be located in different regions.
 * **Usage:** `ibmcloud cos buckets-extended [--ibm-service-instance-id ID] [--marker KEY] [--prefix PREFIX] [--page-size SIZE] [--max-items NUMBER] [--output FORMAT] `
-	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#configure-the-program) command.
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#ic-config) command.
 * **Parameters to provide:**
   * No parameters to provide.
 	* _Optional_: Sets the IBM Service Instance ID in the request.
