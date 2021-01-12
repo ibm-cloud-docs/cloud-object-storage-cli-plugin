@@ -123,6 +123,7 @@ SET IBMCLOUD_TRACE=true
 ```
 
 To disable tracing, set the `IBMCLOUD_TRACE` environment variable to `false` (case ignored).
+
 ## Command index
 {: #ic-command-index}
 
