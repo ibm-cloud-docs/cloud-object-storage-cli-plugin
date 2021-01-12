@@ -105,6 +105,24 @@ If you choose to use token authentication with your own API key, you don't need 
 
 At any time, to switch between HMAC and IAM authentication, you can type `ibmcloud cos config auth`. For more information about authentication and authorization in IBM Cloud, see the [Identity and Access Management documentation](/docs/account?topic=account-iamoverview).
 
+## Enable tracing in the command line interface
+{: #ic-tracing}
+
+Tracing can be enabled by setting `IBMCLOUD_TRACE` environment variable to `true` (case ignored). When trace is enabled, additional debugging information is printed to the terminal.
+
+On Linux/macOS terminal:
+
+```bash
+export IBMCLOUD_TRACE=true
+```
+
+On Windows prompt:
+
+```sh
+SET IBMCLOUD_TRACE=true
+```
+
+To disable tracing, set the `IBMCLOUD_TRACE` environment variable to `false` (case ignored).
 ## Command index
 {: #ic-command-index}
 
