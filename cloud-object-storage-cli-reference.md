@@ -429,7 +429,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--bucket BUCKET_NAME`
 	* The KEY of the object.
 		* Flag: `--key KEY`
-	* _Optional_: The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.
+	* _Optional_: The number of goroutines to spin up in parallel per call to download when sending parts. Default value is 5.
 		* Flag: `--concurrency value`
 	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.
 		* Flag: `--part-size SIZE`
