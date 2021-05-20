@@ -442,7 +442,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 ### Download objects by using S3Manager
 {: #ic-download-s3manager}
 
-* **Action:** Download objects from S3 concurrently.
+* **Action:** Download objects from COS concurrently.
 * **Usage:** `ibmcloud cos download --bucket BUCKET_NAME --key KEY [--concurrency value] [--part-size SIZE] [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--output FORMAT] [OUTFILE]`
 * **Parameters to provide:**
 	* The name (BUCKET_NAME) of the bucket.
@@ -451,7 +451,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--key KEY`
 	* _Optional_: The number of goroutines to spin up in parallel per call to download when sending parts. Default value is 5.
 		* Flag: `--concurrency value`
-	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.
+	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to COS. The minimum allowed part size is 5MB.
 		* Flag: `--part-size SIZE`
 	* _Optional_: Return the object only if its entitytag (ETag) is the same as the ETAG specified, otherwise return a 412 (precondition failed).
 		* Flag: `--if-match ETAG`
@@ -755,11 +755,11 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--file PATH`
 	* _Optional_: The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.
 		* Flag: `--concurrency value`
-	* _Optional_: Max number of PARTS which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.
+	* _Optional_: Max number of PARTS which will be uploaded to COS that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.
 		* Flag: `--max-upload-parts PARTS`
-	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.
+	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to COS. The minimum allowed part size is 5MB.
 		* Flag: `--part-size SIZE`
-	* _Optional_: Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.
+	* _Optional_: Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on COS for manual recovery.
 		* Flag: `--leave-parts-on-errors`
 	* _Optional_: Specifies CACHING_DIRECTIVES for the request/reply chain.
 		* Flag: `--cache-control CACHING_DIRECTIVES`
