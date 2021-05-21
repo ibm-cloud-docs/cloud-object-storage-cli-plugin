@@ -67,21 +67,35 @@ URL Style               VHost
 ### IAM Authentication
 {: #ic-iam-authentication}
 
-If you are using IAM authentication, then you then you must configure your client with an instance ID to use some of the commands.  To retrieve the instance ID you can type `ibmcloud resource service-instance <INSTANCE_NAME> --id`, replace `<INSTANCE_NAME>` with the unique alias that you assigned to your service instance.  In the below examples, the `8f275e7b-c076-49e2-b9c5-f985704cf678` value is an example instance ID.
+If you are using IAM authentication, then you then you must configure your client with an instance ID to use some of the commands.  To retrieve the instance ID you can type `ibmcloud resource service-instance <INSTANCE_NAME>`, replace `<INSTANCE_NAME>` with the unique alias that you assigned to your service instance.
 
-First, retrieve the CRN and id with the name of your instance. Be sure to use quotes (`'`) on your instance name and that you are logged in to IBM Cloud. Only the last piece of the CRN is needed, the part after `::`.
+First, retrieve the CRN and id with the name of your instance. If the instance name has spaces, be sure to use quotes (`'`) on your instance name. Also ensure that you are logged in to IBM Cloud.
 
 ```
-$ ibmcloud resource service-instance 'My Awesome Cloud Object Storage'  --id
-Retrieving service instance My Awesome Cloud Object Storage in all resource groups under account IBM as ibmuser@us.ibm.com...
-crn:v1:bluemix:public:cloud-object-storage:global:a/94400e98c553415c9599db39b9be9219:3b7d66c8-9fdf-4f81-b7e6-08d187f07288:: 8f275e7b-c076-49e2-b9c5-f985704cf678
+$ ibmcloud resource service-instance cos-example-instance 
+Retrieving service instance cos-example-instance in all resource groups under account IBM as ibmuser@us.ibm.com...
+OK
+
+Name:                  cos-example-instance
+ID:                    crn:v1:bluemix:public:cloud-object-storage:global:a/3bf0d9003abfb5d29761c3e97696b71c:d6f04d83-6c4f-4a62-a165-696756d63903::
+GUID:                  d6f04d83-6c4f-4a62-a165-696756d63903
+Location:              global
+Service Name:          cloud-object-storage
+Service Plan Name:     standard
+Resource Group Name:   example-resource-group
+State:                 active
+Type:                  service_instance
+Sub Type:
+Created at:            2017-09-26T20:00:13Z
+Created by:
+Updated at:            2019-02-14T23:58:59Z
 ```
 
-Set the CRN with the `ibmcloud cos config crn` command. It may warn you about overwriting. If you don't want to provide the CRN interactively, you can provide it on the same command with the `--crn` flag.
+Set the CRN with the `ibmcloud cos config crn` command. It may warn you about overwriting. If you don't want to provide the CRN interactively, you can provide it on the same command with the `--crn` flag. It's acceptable to provide either the entire CRN (`crn:v1:bluemix:public:cloud-object-storage:global:a/94400e98c553415c9599db39b9be9219:3b7d66c8-9fdf-4f81-b7e6-08d187f07288::`) or just the GUID (`3b7d66c8-9fdf-4f81-b7e6-08d187f07288`).
 
 ```
 $ ibmcloud cos config crn
-Resource Instance ID CRN:  ()> 8f275e7b-c076-49e2-b9c5-f985704cf678
+Resource Instance ID CRN:  ()> 3b7d66c8-9fdf-4f81-b7e6-08d187f07288
 Saving new Service Instance ID...
 OK
 Successfully stored your service instance ID.
@@ -92,7 +106,7 @@ Verify the configuration:
 ```
 $ ibmcloud cos config crn --list
 Key   Value
-CRN   8f275e7b-c076-49e2-b9c5-f985704cf678
+CRN   3b7d66c8-9fdf-4f81-b7e6-08d187f07288
 ```
 
 Alternatively, you might open the web-based console, select **Service credentials** in the sidebar, and create a new set of credentials (or view an existing credential file that you already created).
