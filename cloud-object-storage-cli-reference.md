@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2020
+  years: 2017, 2021
 lastupdated: "2021-01-04"
 
 keywords: cli, command line reference, object storage
@@ -213,6 +213,58 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
             *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
             *  `--clear` removes the default Service Endpoint URL that has been set.
 
+## Configure a static website
+{: #ic-put-bucket-website}
+
+* **Action:** Configures a bucket to host a static website.
+* **Usage:** `ibmcloud cos bucket-website-put --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+  * The name of the bucket.  
+    * Flag: `--bucket BUCKET_NAME`
+  * The website configuration in the form of a JSON structure. The `file://` prefix is used to load the JSON structure from the specified file, such as `--website-configuration file://<filename.json>`.
+    * Flag: `--website-configuration STRUCTURE`
+        The following parameters are available for configuring static website behavior.  None are required.  For more details, [see the documentation](/docs/cloud-object-storage?topic=cloud-object-storage-static-website-options).
+		```
+        {
+          "ErrorDocument": {
+            "Key": "string"
+          },
+          "IndexDocument": {
+            "Suffix": "string"
+          },
+          "RoutingRules": [
+            {
+              "Condition": {
+                "HttpErrorCodeReturnedEquals": "string",
+                "KeyPrefixEquals": "string"
+              },
+              "Redirect": {
+                "HostName": "string",
+                "HttpRedirectCode": "string",
+                "Protocol": "http"|"https",
+                "ReplaceKeyPrefixWith": "string",
+                "ReplaceKeyWith": "string"
+              }
+            }
+            ...
+          ]
+        }
+        ```
+
+		Alternatively, if the bucket website is configured to redirect traffic, it must be the only parameter configured:
+
+		```
+		  "RedirectAllRequestsTo": {
+		    "HostName": "string",
+		    "Protocol": "http"|"https"
+		  }
+		  ```
+
+  * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+    * Flag: `--region REGION`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
+
 ## Copy object from bucket
 {: #ic-copy-object}
 
@@ -382,7 +434,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		`--delete 'Objects=[{Key=string},{Key=string}],Quiet=boolean'`  
 		* JSON Syntax:  
 	`--delete file://<filename.json>`  
-	The `--delete` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+	The `--delete` command takes a JSON structure listing the objects to delete. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
   	"Objects": [
@@ -676,7 +728,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--cors-configuration STRUCTURE`
 		* JSON Syntax:  
 	`--cors-configuration file://<filename.json>`  
-	The `--cors-configuration` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+	The `--cors-configuration` command takes a JSON structure that describes the CORS configuration. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
   	"CORSRules": [
