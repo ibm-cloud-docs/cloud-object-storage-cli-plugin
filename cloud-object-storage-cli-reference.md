@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-04"
+lastupdated: "2021-11-17"
 
 keywords: cli, command line reference, object storage
 
