@@ -403,6 +403,20 @@ If you want to add metadata to an object during the copying (using the `--metada
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
 
+## Delete a static website configuration
+{: #ic-delete-bucket-website}
+
+* **Action:** Removes a bucket's static website configuration.
+* **Usage:** `ibmcloud cos bucket-website-delete --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+  * The name of the bucket.  
+    * Flag: `--bucket BUCKET_NAME`
+  * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+    * Flag: `--region REGION`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
+
+
 ## Delete an object
 {: #ic-delete-object}
 
@@ -581,6 +595,82 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--region REGION`
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
+
+
+## Complete a multipart upload
+{: #ic-complete-multipart-upload}
+
+* **Action:** Complete a multipart upload instance by assembling the currently uploaded parts and uploading the file to the bucket in the user's IBM Cloud Object Storage account.
+* **Usage:** `ibmcloud cos multipart-upload-complete --bucket BUCKET_NAME --key KEY --upload-id ID --multipart-upload STRUCTURE [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* Upload ID identifying the multipart upload.
+		* Flag: `--upload-id ID`
+	* The STRUCTURE of MultipartUpload to set.
+		* Flag: `--multipart-upload STRUCTURE`
+		* Shorthand Syntax:  
+		`--multipart-upload 'Parts=[{ETag=string,PartNumber=integer},{ETag=string,PartNumber=integer}]'`
+		* JSON Syntax:  
+	`--multipart-upload file://<filename.json>`  
+	The `--multipart-upload` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+		```
+			{
+  			"Parts": [
+    			{
+     			 "ETag": "string",
+     			 "PartNumber": integer
+    			}
+    			...
+  				]
+			}
+		```
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+## Configure the Program
+{: #ic-config}
+
+* **Action:** Configure the program's preferences.
+* **Usage:** `ibmcloud cos config [COMMAND]`
+* **Commands:**
+	* Switch between HMAC and IAM authentication.
+		* Command: `auth`
+	* Store CRN in the config.
+		* Command: `crn`
+	* Store Default Download Location in the config.
+		* Command: `ddl`
+	* Store HMAC credentials in the config.
+		* Command: `hmac`
+	* List configuration.
+		* Command: `list`
+	* Store Default Region in the config.
+		* Command: `region`
+	* Switch between VHost and Path URL style.
+		* Command: `url-style`
+    * Set Default Service Endpoint.
+        * Command: `endpoint-url`
+          * Parameters: 
+            *  `--list` displays the current default Service Endpoint, if it has been set. Otherwise, it will be empty.
+            *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
+            *  `--clear` removes the default Service Endpoint URL that has been set.
+
+## Get a static website configuration
+{: #ic-get-bucket-website}
+
+* **Action:** Gets a bucket's static website configuration.
+* **Usage:** `ibmcloud cos bucket-website-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+  * The name of the bucket.  
+    * Flag: `--bucket BUCKET_NAME`
+  * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+    * Flag: `--region REGION`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
 
 ## Get an object's headers
 {: #ic-object-header}
