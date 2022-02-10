@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2020
-lastupdated: "2021-01-04"
+  years: 2017, 2022
+lastupdated: "2022-02-10"
 
 keywords: cli, command line reference, object storage
 
@@ -67,35 +67,21 @@ URL Style               VHost
 ### IAM Authentication
 {: #ic-iam-authentication}
 
-If you are using IAM authentication, then you then you must configure your client with an instance ID to use some of the commands.  To retrieve the instance ID you can type `ibmcloud resource service-instance <INSTANCE_NAME>`, replace `<INSTANCE_NAME>` with the unique alias that you assigned to your service instance.
+If you are using IAM authentication, then you then you must configure your client with an instance ID to use some of the commands.  To retrieve the instance ID you can type `ibmcloud resource service-instance <INSTANCE_NAME> --id`, replace `<INSTANCE_NAME>` with the unique alias that you assigned to your service instance.  In the below examples, the `8f275e7b-c076-49e2-b9c5-f985704cf678` value is an example instance ID.
 
-First, retrieve the CRN and id with the name of your instance. If the instance name has spaces, be sure to use quotes (`'`) on your instance name. Also ensure that you are logged in to IBM Cloud.
+First, retrieve the CRN and id with the name of your instance. Be sure to use quotes (`'`) on your instance name and that you are logged in to IBM Cloud. Only the last piece of the CRN is needed, the part after `::`.
 
 ```
-$ ibmcloud resource service-instance cos-example-instance 
-Retrieving service instance cos-example-instance in all resource groups under account IBM as ibmuser@us.ibm.com...
-OK
-
-Name:                  cos-example-instance
-ID:                    crn:v1:bluemix:public:cloud-object-storage:global:a/3bf0d9003abfb5d29761c3e97696b71c:d6f04d83-6c4f-4a62-a165-696756d63903::
-GUID:                  d6f04d83-6c4f-4a62-a165-696756d63903
-Location:              global
-Service Name:          cloud-object-storage
-Service Plan Name:     standard
-Resource Group Name:   example-resource-group
-State:                 active
-Type:                  service_instance
-Sub Type:
-Created at:            2017-09-26T20:00:13Z
-Created by:
-Updated at:            2019-02-14T23:58:59Z
+$ ibmcloud resource service-instance 'My Awesome Cloud Object Storage'  --id
+Retrieving service instance My Awesome Cloud Object Storage in all resource groups under account IBM as ibmuser@us.ibm.com...
+crn:v1:bluemix:public:cloud-object-storage:global:a/94400e98c553415c9599db39b9be9219:3b7d66c8-9fdf-4f81-b7e6-08d187f07288:: 8f275e7b-c076-49e2-b9c5-f985704cf678
 ```
 
-Set the CRN with the `ibmcloud cos config crn` command. It may warn you about overwriting. If you don't want to provide the CRN interactively, you can provide it on the same command with the `--crn` flag. It's acceptable to provide either the entire CRN (`crn:v1:bluemix:public:cloud-object-storage:global:a/94400e98c553415c9599db39b9be9219:3b7d66c8-9fdf-4f81-b7e6-08d187f07288::`) or just the GUID (`3b7d66c8-9fdf-4f81-b7e6-08d187f07288`).
+Set the CRN with the `ibmcloud cos config crn` command. It may warn you about overwriting. If you don't want to provide the CRN interactively, you can provide it on the same command with the `--crn` flag.
 
 ```
 $ ibmcloud cos config crn
-Resource Instance ID CRN:  ()> 3b7d66c8-9fdf-4f81-b7e6-08d187f07288
+Resource Instance ID CRN:  ()> 8f275e7b-c076-49e2-b9c5-f985704cf678
 Saving new Service Instance ID...
 OK
 Successfully stored your service instance ID.
@@ -106,7 +92,7 @@ Verify the configuration:
 ```
 $ ibmcloud cos config crn --list
 Key   Value
-CRN   3b7d66c8-9fdf-4f81-b7e6-08d187f07288
+CRN   8f275e7b-c076-49e2-b9c5-f985704cf678
 ```
 
 Alternatively, you might open the web-based console, select **Service credentials** in the sidebar, and create a new set of credentials (or view an existing credential file that you already created).
@@ -165,67 +151,57 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
 
-## Complete a multipart upload
-{: #ic-complete-multipart-upload}
+## Configure a static website
+{: #ic-put-bucket-website}
 
-* **Action:** Complete a multipart upload instance by assembling the currently uploaded parts and uploading the file to the bucket in the user's IBM Cloud Object Storage account.
-* **Usage:** `ibmcloud cos multipart-upload-complete --bucket BUCKET_NAME --key KEY --upload-id ID --multipart-upload STRUCTURE [--region REGION] [--output FORMAT]`
+* **Action:** Configures a bucket to host a static website.
+* **Usage:** `ibmcloud cos bucket-website-put --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
-	* The name of the bucket.
-		* Flag: `--bucket BUCKET_NAME`
-	* The KEY of the object.
-		* Flag: `--key KEY`
-	* Upload ID identifying the multipart upload.
-		* Flag: `--upload-id ID`
-	* The STRUCTURE of MultipartUpload to set.
-		* Flag: `--multipart-upload STRUCTURE`
-		* Shorthand Syntax:  
-		`--multipart-upload 'Parts=[{ETag=string,PartNumber=integer},{ETag=string,PartNumber=integer}]'`
-		* JSON Syntax:  
-	`--multipart-upload file://<filename.json>`  
-	The `--multipart-upload` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+  * The name of the bucket.  
+    * Flag: `--bucket BUCKET_NAME`
+  * The website configuration in the form of a JSON structure. The `file://` prefix is used to load the JSON structure from the specified file, such as `--website-configuration file://<filename.json>`.
+    * Flag: `--website-configuration STRUCTURE`
+        The following parameters are available for configuring static website behavior.  None are required.  For more details, [see the documentation](/docs/cloud-object-storage?topic=cloud-object-storage-static-website-options).
 		```
-			{
-  			"Parts": [
-    			{
-     			 "ETag": "string",
-     			 "PartNumber": integer
-    			}
-    			...
-  				]
-			}
+        {
+          "ErrorDocument": {
+            "Key": "string"
+          },
+          "IndexDocument": {
+            "Suffix": "string"
+          },
+          "RoutingRules": [
+            {
+              "Condition": {
+                "HttpErrorCodeReturnedEquals": "string",
+                "KeyPrefixEquals": "string"
+              },
+              "Redirect": {
+                "HostName": "string",
+                "HttpRedirectCode": "string",
+                "Protocol": "http"|"https",
+                "ReplaceKeyPrefixWith": "string",
+                "ReplaceKeyWith": "string"
+              }
+            }
+            ...
+          ]
+        }
+        ```
+
+		Alternatively, if the bucket website is configured to redirect traffic, it must be the only parameter configured:
+
 		```
-	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
-		* Flag: `--region REGION`
-	* _Optional_: Output FORMAT can be only json or text.
-		* Flag: `--output FORMAT`
+		  "RedirectAllRequestsTo": {
+		    "HostName": "string",
+		    "Protocol": "http"|"https"
+		  }
+		  ```
 
-## Configure the Program
-{: #ic-config}
-
-* **Action:** Configure the program's preferences.
-* **Usage:** `ibmcloud cos config [COMMAND]`
-* **Commands:**
-	* Switch between HMAC and IAM authentication.
-		* Command: `auth`
-	* Store CRN in the config.
-		* Command: `crn`
-	* Store Default Download Location in the config.
-		* Command: `ddl`
-	* Store HMAC credentials in the config.
-		* Command: `hmac`
-	* List configuration.
-		* Command: `list`
-	* Store Default Region in the config.
-		* Command: `region`
-	* Switch between VHost and Path URL style.
-		* Command: `url-style`
-    * Set Default Service Endpoint.
-        * Command: `endpoint-url`
-          * Parameters: 
-            *  `--list` displays the current default Service Endpoint, if it has been set. Otherwise, it will be empty.
-            *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
-            *  `--clear` removes the default Service Endpoint URL that has been set.
+  * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+    * Flag: `--region REGION`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
 
 ## Copy object from bucket
 {: #ic-copy-object}
@@ -365,6 +341,20 @@ If you want to add metadata to an object during the copying (using the `--metada
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
 
+## Delete a static website configuration
+{: #ic-delete-bucket-website}
+
+* **Action:** Removes a bucket's static website configuration.
+* **Usage:** `ibmcloud cos bucket-website-delete --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+  * The name of the bucket.  
+    * Flag: `--bucket BUCKET_NAME`
+  * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+    * Flag: `--region REGION`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
+
+
 ## Delete an object
 {: #ic-delete-object}
 
@@ -396,7 +386,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		`--delete 'Objects=[{Key=string},{Key=string}],Quiet=boolean'`  
 		* JSON Syntax:  
 	`--delete file://<filename.json>`  
-	The `--delete` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+	The `--delete` command takes a JSON structure listing the objects to delete. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
   	"Objects": [
@@ -456,7 +446,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 ### Download objects by using S3Manager
 {: #ic-download-s3manager}
 
-* **Action:** Download objects from COS concurrently.
+* **Action:** Download objects from S3 concurrently.
 * **Usage:** `ibmcloud cos download --bucket BUCKET_NAME --key KEY [--concurrency value] [--part-size SIZE] [--if-match ETAG] [--if-modified-since TIMESTAMP] [--if-none-match ETAG] [--if-unmodified-since TIMESTAMP] [--range RANGE] [--response-cache-control HEADER] [--response-content-disposition HEADER] [--response-content-encoding HEADER] [--response-content-language HEADER] [--response-content-type HEADER] [--response-expires HEADER] [--region REGION] [--output FORMAT] [OUTFILE]`
 * **Parameters to provide:**
 	* The name (BUCKET_NAME) of the bucket.
@@ -465,7 +455,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--key KEY`
 	* _Optional_: The number of goroutines to spin up in parallel per call to download when sending parts. Default value is 5.
 		* Flag: `--concurrency value`
-	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to COS. The minimum allowed part size is 5MB.
+	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.
 		* Flag: `--part-size SIZE`
 	* _Optional_: Return the object only if its entitytag (ETag) is the same as the ETAG specified, otherwise return a 412 (precondition failed).
 		* Flag: `--if-match ETAG`
@@ -543,6 +533,82 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--region REGION`
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
+
+
+## Complete a multipart upload
+{: #ic-complete-multipart-upload}
+
+* **Action:** Complete a multipart upload instance by assembling the currently uploaded parts and uploading the file to the bucket in the user's IBM Cloud Object Storage account.
+* **Usage:** `ibmcloud cos multipart-upload-complete --bucket BUCKET_NAME --key KEY --upload-id ID --multipart-upload STRUCTURE [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* Upload ID identifying the multipart upload.
+		* Flag: `--upload-id ID`
+	* The STRUCTURE of MultipartUpload to set.
+		* Flag: `--multipart-upload STRUCTURE`
+		* Shorthand Syntax:  
+		`--multipart-upload 'Parts=[{ETag=string,PartNumber=integer},{ETag=string,PartNumber=integer}]'`
+		* JSON Syntax:  
+	`--multipart-upload file://<filename.json>`  
+	The `--multipart-upload` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+		```
+			{
+  			"Parts": [
+    			{
+     			 "ETag": "string",
+     			 "PartNumber": integer
+    			}
+    			...
+  				]
+			}
+		```
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+## Configure the Program
+{: #ic-config}
+
+* **Action:** Configure the program's preferences.
+* **Usage:** `ibmcloud cos config [COMMAND]`
+* **Commands:**
+	* Switch between HMAC and IAM authentication.
+		* Command: `auth`
+	* Store CRN in the config.
+		* Command: `crn`
+	* Store Default Download Location in the config.
+		* Command: `ddl`
+	* Store HMAC credentials in the config.
+		* Command: `hmac`
+	* List configuration.
+		* Command: `list`
+	* Store Default Region in the config.
+		* Command: `region`
+	* Switch between VHost and Path URL style.
+		* Command: `url-style`
+    * Set Default Service Endpoint.
+        * Command: `endpoint-url`
+          * Parameters: 
+            *  `--list` displays the current default Service Endpoint, if it has been set. Otherwise, it will be empty.
+            *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
+            *  `--clear` removes the default Service Endpoint URL that has been set.
+
+## Get a static website configuration
+{: #ic-get-bucket-website}
+
+* **Action:** Gets a bucket's static website configuration.
+* **Usage:** `ibmcloud cos bucket-website-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+  * The name of the bucket.  
+    * Flag: `--bucket BUCKET_NAME`
+  * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+    * Flag: `--region REGION`
+  * _Optional_: Output FORMAT can be only json or text.
+    * Flag: `--output FORMAT`
 
 ## Get an object's headers
 {: #ic-object-header}
@@ -690,7 +756,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--cors-configuration STRUCTURE`
 		* JSON Syntax:  
 	`--cors-configuration file://<filename.json>`  
-	The `--cors-configuration` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
+	The `--cors-configuration` command takes a JSON structure that describes the CORS configuration. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
   	"CORSRules": [
@@ -769,11 +835,11 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--file PATH`
 	* _Optional_: The number of goroutines to spin up in parallel per call to Upload when sending parts. Default value is 5.
 		* Flag: `--concurrency value`
-	* _Optional_: Max number of PARTS which will be uploaded to COS that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.
+	* _Optional_: Max number of PARTS which will be uploaded to S3 that calculates the part size of the object to be uploaded.  Limit is 10,000 parts.
 		* Flag: `--max-upload-parts PARTS`
-	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to COS. The minimum allowed part size is 5MB.
+	* _Optional_: The buffer SIZE (in bytes) to use when buffering data into chunks and ending them as parts to S3. The minimum allowed part size is 5MB.
 		* Flag: `--part-size SIZE`
-	* _Optional_: Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on COS for manual recovery.
+	* _Optional_: Setting this value to true will cause the SDK to avoid calling AbortMultipartUpload on a failure, leaving all successfully uploaded parts on S3 for manual recovery.
 		* Flag: `--leave-parts-on-errors`
 	* _Optional_: Specifies CACHING_DIRECTIVES for the request/reply chain.
 		* Flag: `--cache-control CACHING_DIRECTIVES`
