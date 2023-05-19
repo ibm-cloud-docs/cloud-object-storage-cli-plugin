@@ -1,8 +1,10 @@
 ---
 
 copyright:
+
   years: 2017, 2023
 lastupdated: "2023-05-19"
+
 
 keywords: cli, command line reference, object storage
 
@@ -157,11 +159,14 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 * **Action:** Configures a bucket to host a static website.
 * **Usage:** `ibmcloud cos bucket-website-put --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
+
   * The name of the bucket.
+=======
     * Flag: `--bucket BUCKET_NAME`
   * The website configuration in the form of a JSON structure. The `file://` prefix is used to load the JSON structure from the specified file, such as `--website-configuration file://<filename.json>`.
     * Flag: `--website-configuration STRUCTURE`
         The following parameters are available for configuring static website behavior.  None are required.  For more details, [see the documentation](/docs/cloud-object-storage?topic=cloud-object-storage-static-website-options).
+
 		```sh
         {
           "ErrorDocument": {
@@ -190,6 +195,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
         ```
 
 		Alternatively, if the bucket website is configured to redirect traffic, it must be the only parameter configured:
+
 
 		```sh
 		  "RedirectAllRequestsTo": {
@@ -348,6 +354,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 * **Usage:** `ibmcloud cos bucket-website-delete --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
   * The name of the bucket.
+=======
     * Flag: `--bucket BUCKET_NAME`
   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
     * Flag: `--region REGION`
@@ -386,6 +393,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		`--delete 'Objects=[{Key=string},{Key=string}],Quiet=boolean'`
 		* JSON Syntax:
 	`--delete file://<filename.json>`
+=======
 	The `--delete` command takes a JSON structure listing the objects to delete. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
@@ -553,6 +561,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		`--multipart-upload 'Parts=[{ETag=string,PartNumber=integer},{ETag=string,PartNumber=integer}]'`
 		* JSON Syntax:
 	`--multipart-upload file://<filename.json>`
+=======
 	The `--multipart-upload` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 		```
 			{
@@ -593,6 +602,7 @@ If you want to add metadata to an object during the copying (using the `--metada
     * Set Default Service Endpoint.
         * Command: `endpoint-url`
           * Parameters:
+=======
             *  `--list` displays the current default Service Endpoint, if it has been set. Otherwise, it will be empty.
             *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
             *  `--clear` removes the default Service Endpoint URL that has been set.
@@ -604,6 +614,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 * **Usage:** `ibmcloud cos bucket-website-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
   * The name of the bucket.
+=======
     * Flag: `--bucket BUCKET_NAME`
   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
     * Flag: `--region REGION`
@@ -756,6 +767,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--cors-configuration STRUCTURE`
 		* JSON Syntax:
 	`--cors-configuration file://<filename.json>`
+=======
 	The `--cors-configuration` command takes a JSON structure that describes the CORS configuration. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
