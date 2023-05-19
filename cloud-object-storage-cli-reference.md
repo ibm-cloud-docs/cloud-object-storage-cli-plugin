@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-02-10"
+  years: 2017, 2023
+lastupdated: "2023-05-19"
 
 keywords: cli, command line reference, object storage
 
@@ -17,10 +17,10 @@ subcollection: cloud-object-storage-cli-plugin
 {:tip: .tip}
 {:important: .important}
 {:note: .note}
-{:download: .download} 
-{:http: .ph data-hd-programlang='http'} 
-{:javascript: .ph data-hd-programlang='javascript'} 
-{:java: .ph data-hd-programlang='java'} 
+{:download: .download}
+{:http: .ph data-hd-programlang='http'}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:faq: data-hd-content-type='faq'}
 {:support: data-reuse='support'}
@@ -38,14 +38,14 @@ The plug-in is compatible with linux64, ppc64le, Windows&reg;, and macOS&reg; pl
 
 Install the plug-in by using the `plugin install` command.
 
-```
+```sh
 ibmcloud plugin install cloud-object-storage
 ```
 
-Once the plug-in is installed, you can configure the plug-in by using the [`ibmcloud cos config`](#ic-config) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
+Once the plug-in is installed, you can configure the plug-in by using the `ibmcloud cos config`(#ic-config) command. This can be used to populate the plug-in with your credentials, default download location, choosing your authentication, etc.
 
 For optimal performance, ensure that tracing is disabled by setting the `IBMCLOUD_TRACE` environment variable to `false`.
-{:important}
+{: important}
 
 The program also offers the ability for you to set the default local directory for downloaded files, and to set a default region. To set the default download location, type `ibmcloud cos config ddl` and input into the program a valid file path. To set a default region, type `ibmcloud cos config region` and provide an input into the program a region code, such as `us-south`. By default, this value is set to `us-geo`.
 
@@ -58,7 +58,7 @@ Last Updated            Tuesday, April 28 2020 at 19:35:57
 Default Region          us-south
 Download Location       /home/ibmuser/Downloads
 CRN                     8f275e7b-c076-49e2-b9c5-f985704cf678
-AccessKeyID             9eib1eejar6HaezaohveV5hikei4aNg2ooV0qu 
+AccessKeyID             9eib1eejar6HaezaohveV5hikei4aNg2ooV0qu
 SecretAccessKey         ********************************************
 Authentication Method   IAM
 URL Style               VHost
@@ -71,7 +71,7 @@ If you are using IAM authentication, then you then you must configure your clien
 
 First, retrieve the CRN and id with the name of your instance. Be sure to use quotes (`'`) on your instance name and that you are logged in to IBM Cloud. Only the last piece of the CRN is needed, the part after `::`.
 
-```
+```sh
 $ ibmcloud resource service-instance 'My Awesome Cloud Object Storage'  --id
 Retrieving service instance My Awesome Cloud Object Storage in all resource groups under account IBM as ibmuser@us.ibm.com...
 crn:v1:bluemix:public:cloud-object-storage:global:a/94400e98c553415c9599db39b9be9219:3b7d66c8-9fdf-4f81-b7e6-08d187f07288:: 8f275e7b-c076-49e2-b9c5-f985704cf678
@@ -79,7 +79,7 @@ crn:v1:bluemix:public:cloud-object-storage:global:a/94400e98c553415c9599db39b9be
 
 Set the CRN with the `ibmcloud cos config crn` command. It may warn you about overwriting. If you don't want to provide the CRN interactively, you can provide it on the same command with the `--crn` flag.
 
-```
+```sh
 $ ibmcloud cos config crn
 Resource Instance ID CRN:  ()> 8f275e7b-c076-49e2-b9c5-f985704cf678
 Saving new Service Instance ID...
@@ -89,7 +89,7 @@ Successfully stored your service instance ID.
 
 Verify the configuration:
 
-```
+```sh
 $ ibmcloud cos config crn --list
 Key   Value
 CRN   8f275e7b-c076-49e2-b9c5-f985704cf678
@@ -141,15 +141,15 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 * **Usage:** `ibmcloud cos multipart-upload-abort --bucket BUCKET_NAME --key KEY --upload-id ID [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
-		* Flag: `--bucket BUCKET_NAME`
+	  * Flag: `--bucket BUCKET_NAME`
 	* The KEY of the object.
-		* Flag: `--key KEY`
+	  * Flag: `--key KEY`
 	* Upload ID identifying the multipart upload.
-		* Flag: `--upload-id ID`
+	  * Flag: `--upload-id ID`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
-		* Flag: `--region REGION`
+	  * Flag: `--region REGION`
 	* _Optional_: Output FORMAT can be only json or text.
-		* Flag: `--output FORMAT`
+	  * Flag: `--output FORMAT`
 
 ## Configure a static website
 {: #ic-put-bucket-website}
@@ -157,12 +157,12 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 * **Action:** Configures a bucket to host a static website.
 * **Usage:** `ibmcloud cos bucket-website-put --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
-  * The name of the bucket.  
+  * The name of the bucket.
     * Flag: `--bucket BUCKET_NAME`
   * The website configuration in the form of a JSON structure. The `file://` prefix is used to load the JSON structure from the specified file, such as `--website-configuration file://<filename.json>`.
     * Flag: `--website-configuration STRUCTURE`
         The following parameters are available for configuring static website behavior.  None are required.  For more details, [see the documentation](/docs/cloud-object-storage?topic=cloud-object-storage-static-website-options).
-		```
+		```sh
         {
           "ErrorDocument": {
             "Key": "string"
@@ -191,7 +191,7 @@ The CLI plug-in doesn't yet support the full suite of features available in Obje
 
 		Alternatively, if the bucket website is configured to redirect traffic, it must be the only parameter configured:
 
-		```
+		```sh
 		  "RedirectAllRequestsTo": {
 		    "HostName": "string",
 		    "Protocol": "http"|"https"
@@ -236,9 +236,9 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--copy-source-if-none-match ETAG`
 	* _Optional_: Copies the object if it hasn't been modified since the specified time (TIMESTAMP).
 		* Flag: `--copy-source-if-unmodified-since TIMESTAMP`
-	* _Optional_: A MAP of metadata to store. 
+	* _Optional_: A MAP of metadata to store.
 	    * Flag: `--metadata MAP`
-    JSON Syntax: 
+    JSON Syntax:
     The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
     ```
     {
@@ -294,9 +294,9 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--content-language LANGUAGE`
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
-	* _Optional_: A MAP of metadata to store. 
+	* _Optional_: A MAP of metadata to store.
 	    * Flag: `--metadata MAP`
-    JSON Syntax: 
+    JSON Syntax:
     The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
     ```
     {
@@ -347,7 +347,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 * **Action:** Removes a bucket's static website configuration.
 * **Usage:** `ibmcloud cos bucket-website-delete --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
-  * The name of the bucket.  
+  * The name of the bucket.
     * Flag: `--bucket BUCKET_NAME`
   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
     * Flag: `--region REGION`
@@ -378,14 +378,14 @@ If you want to add metadata to an object during the copying (using the `--metada
 * **Action:** Delete multiple objects from a bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos objects-delete --bucket BUCKET_NAME --delete STRUCTURE [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
-	* The name of the bucket.  
-		* Flag: `--bucket BUCKET_NAME`  
-	* A STRUCTURE using either shorthand or JSON syntax.  
-		* Flag: `--delete STRUCTURE`  
-		* Shorthand Syntax:  
-		`--delete 'Objects=[{Key=string},{Key=string}],Quiet=boolean'`  
-		* JSON Syntax:  
-	`--delete file://<filename.json>`  
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* A STRUCTURE using either shorthand or JSON syntax.
+		* Flag: `--delete STRUCTURE`
+		* Shorthand Syntax:
+		`--delete 'Objects=[{Key=string},{Key=string}],Quiet=boolean'`
+		* JSON Syntax:
+	`--delete file://<filename.json>`
 	The `--delete` command takes a JSON structure listing the objects to delete. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
@@ -514,13 +514,13 @@ If you want to add metadata to an object during the copying (using the `--metada
 * **Action:** Returns the CORS configuration for the bucket in a user's IBM Cloud Object Storage account.
 * **Usage:** `ibmcloud cos bucket-cors-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
-  * The name of the bucket.  
+  * The name of the bucket.
     * Flag: `--bucket BUCKET_NAME`
   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
     * Flag: `--region REGION`
   * _Optional_: Output FORMAT can be only json or text.
     * Flag: `--output FORMAT`
-	
+
 ## Get a bucket's headers
 {: #ic-bucket-header}
 
@@ -549,10 +549,10 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--upload-id ID`
 	* The STRUCTURE of MultipartUpload to set.
 		* Flag: `--multipart-upload STRUCTURE`
-		* Shorthand Syntax:  
+		* Shorthand Syntax:
 		`--multipart-upload 'Parts=[{ETag=string,PartNumber=integer},{ETag=string,PartNumber=integer}]'`
-		* JSON Syntax:  
-	`--multipart-upload file://<filename.json>`  
+		* JSON Syntax:
+	`--multipart-upload file://<filename.json>`
 	The `--multipart-upload` command takes a JSON structure that describes the parts of the multipart upload that should be reassembled into the complete file. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 		```
 			{
@@ -592,7 +592,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Command: `url-style`
     * Set Default Service Endpoint.
         * Command: `endpoint-url`
-          * Parameters: 
+          * Parameters:
             *  `--list` displays the current default Service Endpoint, if it has been set. Otherwise, it will be empty.
             *  `--url some.end.point.url` will change the Service Endpoint to the value as given.
             *  `--clear` removes the default Service Endpoint URL that has been set.
@@ -603,7 +603,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 * **Action:** Gets a bucket's static website configuration.
 * **Usage:** `ibmcloud cos bucket-website-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
-  * The name of the bucket.  
+  * The name of the bucket.
     * Flag: `--bucket BUCKET_NAME`
   * _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
     * Flag: `--region REGION`
@@ -754,8 +754,8 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--bucket BUCKET_NAME`
 	* _Optional_: A STRUCTURE using JSON syntax in a file.
 		* Flag: `--cors-configuration STRUCTURE`
-		* JSON Syntax:  
-	`--cors-configuration file://<filename.json>`  
+		* JSON Syntax:
+	`--cors-configuration file://<filename.json>`
 	The `--cors-configuration` command takes a JSON structure that describes the CORS configuration. In this example, the `file://` prefix is used to load the JSON structure from the specified file.
 	```
 	{
@@ -804,7 +804,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--content-type MIME`
 	* _Optional_: A MAP of metadata to store.
 	    * Flag: `--metadata MAP`
-    JSON Syntax: 
+    JSON Syntax:
     The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
     ```
     {
@@ -855,9 +855,9 @@ If you want to add metadata to an object during the copying (using the `--metada
 		* Flag: `--content-md5 MD5`
 	* _Optional_: A standard MIME type describing the format of the object data.
 		* Flag: `--content-type MIME`
-	* _Optional_: A MAP of metadata to store. 
+	* _Optional_: A MAP of metadata to store.
 	    * Flag: `--metadata MAP`
-    JSON Syntax: 
+    JSON Syntax:
     The `--metadata` flag takes the `file://` prefix that is used to load the JSON structure from the specified file.
     ```
     {
@@ -879,7 +879,7 @@ If you want to add metadata to an object during the copying (using the `--metada
 
 The IBM Cloud Object Storage CLI provides the ability for users to upload large files in multiple parts by using the AWS multipart upload functions. To initiate a new multipart upload, run the `multipart-upload-create` command, which returns the new upload instance's upload ID. To continue with the upload process, you must save the upload ID for each subsequent command. This command requires you to generate an MD5 hash:
 
-```
+```sh
 {object data} | openssl dgst -md5 -binary | openssl enc -base64
 ```
 
@@ -887,7 +887,7 @@ After running the `multipart-upload-complete` command, run `part-upload` for eac
 
 As each file part is uploaded, the CLI print its ETag. You must save this ETag into a formatted JSON file, along with the part number. Use this template to create your own ETag JSON data file.
 
-```
+```sh
 {
   "Parts": [
     {
