@@ -1008,27 +1008,208 @@ ibmcloud cos bucket-create --bucket hpcsclitrialbucket04 --kms-root-key-crn crn:
 {: #ic-obj-lock-config}
 
 ### Put Object Lock configuration
-{: #ic-create-a-new-bucket-hpcs}
+{: #ic-put-obj-lock-config}
 
-* **Action:** Create a new bucket with Hyper Protect Cryto Services.
-* **Usage:** `bucket-create --bucket BUCKET_NAME [--ibm-service-instance-id ID] [--class CLASS_NAME] [--region REGION] --kms-root-key-crn CUSTOMERROOTKEYCRN --kms-encryption-algorithm ALGORITHM [--output FORMAT] [--json]`
+* **Action:** Set the object lock configuration on a bucket.
+* **Usage:** `object-lock-configuration-put --bucket BUCKET_NAME [--object-lock-configuration STRUCTURE] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
-	* The CUSTOMERROOTKEYCRN of the KMS root key associated with the bucket for data encryption.
-		* Flag: `--kms-root-key-crn CUSTOMERROOTKEYCRN`
-	* The ALGORITHM and SIZE to use with the encryption key stored by using key protect.
-		* Flag: `--kms-encryption-algorithm ALGORITHM`
-	* _Optional_: The name of the Class.
-		* Flag: `--class CLASS_NAME`
-	* _Optional_: Sets the IBM Service Instance ID in the request.
-		* Flag: `--ibm-service-instance-id ID`
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+		* Flag: `--object-lock-configuration STRUCTURE
+
+			```sh
+			{
+			"ObjectLockEnabled": "Enabled",
+			"Rule": {
+				"DefaultRetention": {
+				"Mode": "COMPLIANCE",
+				"Days": integer,
+				"Years": integer
+				}
+			}
+			}
+			```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
 		* Flag: `--region REGION`
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
-	* (Deprecated): Output returned in raw JSON format..
-		* Flag: `--json`
+
+Example:
+
+```sh
+ibmcloud cos object-lock-configuration-put --bucket bucket-name --object-lock-configuration '{ "ObjectLockEnabled": "Enabled", "Rule": { "DefaultRetention": { "Mode": "COMPLIANCE", "Days": 30 }}}'
+```
+
+### Get Object Lock configuration
+{: #ic-get-obj-lock-config}
+
+* **Action:** Get the object lock configuration on a bucket.
+* **Usage:** `object-lock-configuration-get --bucket BUCKET_NAME [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+		* Flag: `--object-lock-configuration STRUCTURE
+
+			```sh
+			{
+			"ObjectLockEnabled": "Enabled",
+			"Rule": {
+				"DefaultRetention": {
+				"Mode": "COMPLIANCE",
+				"Days": integer,
+				"Years": integer
+				}
+			}
+			}
+			```
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+			```sh
+			{
+			"ObjectLockEnabled": "Enabled",
+			"Rule": {
+				"DefaultRetention": {
+				"Mode": "COMPLIANCE",
+				"Days": integer,
+				"Years": integer
+				}
+			}
+			}
+			```
+Example:
+
+```sh
+ibmcloud cos object-lock-configuration-get --bucket bucket-name --region us-south
+```
+
+## Object Retention
+{: #ic-obj-retention}
+
+### Put Object Retention
+{: #ic-put-obj-retention}
+
+* **Action:** Set retention on a object.
+* **Usage:** `object-retention-put --bucket BUCKET_NAME --key KEY [--retention STRUCTURE] [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+		* Flag: `--object-lock-configuration STRUCTURE
+
+			```sh
+			{
+			  "Mode": "COMPLIANCE",
+			  "RetainUntilDate": timestamp
+			}
+			```
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+Example:
+
+```sh
+ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --retention '{ "Mode": "COMPLIANCE", "RetainUntilDate": "2024-02-02T00:00:00"}’
+```
+
+### Get Object Retention
+{: #ic-get-obj-retention}
+
+* **Action:** Get retention on a object.
+* **Usage:** `object-retention-get --bucket BUCKET_NAME --key KEY [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+			```sh
+			{
+				"Retention": {
+					"Mode": "COMPLIANCE",
+					"RetainUntilDate": "2024-02-02T00:00:00.000Z"
+				}
+			}
+			```
+Example:
+
+```sh
+ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --region us-south
+```
+
+## Object Legal Hold
+{: #ic-obj-legal-hold}
+
+### Put Object Legal Hold
+{: #ic-put-obj-legal-hold}
+
+* **Action:** Set the legal hold on a object.
+* **Usage:** `object-retention-put --bucket BUCKET_NAME --key KEY [--retention STRUCTURE] [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+		* Flag: `--object-lock-configuration STRUCTURE
+
+			```sh
+			{
+			  "Mode": "COMPLIANCE",
+			  "RetainUntilDate": timestamp
+			}
+			```
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+Example:
+
+```sh
+ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --retention '{ "Mode": "COMPLIANCE", "RetainUntilDate": "2024-02-02T00:00:00"}’
+```
+
+### Get Object Retention
+{: #ic-get-obj-retention}
+
+* **Action:** Get retention on an object.
+* **Usage:** `object-retention-get --bucket BUCKET_NAME --key KEY [--region REGION] [--output FORMAT]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The KEY of the object.
+		* Flag: `--key KEY`
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+
+			```sh
+			{
+				"Retention": {
+					"Mode": "COMPLIANCE",
+					"RetainUntilDate": "2024-02-02T00:00:00.000Z"
+				}
+			}
+			```
+Example:
+
+```sh
+ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --region us-south
+```
 
 ## Next Steps
 {: #cli-ref-next-steps}
