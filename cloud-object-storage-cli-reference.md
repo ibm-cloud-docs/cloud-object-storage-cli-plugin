@@ -281,6 +281,36 @@ If you want to add metadata to an object during the copying (using the `--metada
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
 
+### Create a new bucket with Key Protect
+{: #ic-create-bucket-kp}
+
+* **Action:** Create a bucket with Key Protect in an IBM Cloud Object Storage instance.
+* **Usage:** `bucket-create --bucket BUCKET_NAME [--ibm-service-instance-id ID] [--class CLASS_NAME] [--region REGION] --kms-root-key-crn CUSTOMERROOTKEYCRN --kms-encryption-algorithm ALGORITHM [--output FORMAT] [--json]`
+	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#ic-config) command.
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The CUSTOMERROOTKEYCRN of the KMS root key associated with the bucket for data encryption.
+		* Flag: `--kms-root-key-crn CUSTOMERROOTKEYCRN`
+	* The ALGORITHM and SIZE to use with the encryption key stored by using key protect.
+		* Flag: `--kms-encryption-algorithm ALGORITHM`
+	* _Optional_: The name of the Class.
+		* Flag: `--class CLASS_NAME`
+	* _Optional_: Sets the IBM Service Instance ID in the request.
+		* Flag: `--ibm-service-instance-id ID`
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+	* (Deprecated): Output returned in raw JSON format..
+		* Flag: `--json`
+
+Example:
+
+```sh
+ibmcloud cos bucket-create --bucket bucket-name --kms-root-key-crn crn:v1:staging:public:kms:us-south:a/9978e0xxxxxxxxxxxxxxxxxxxxxx8654:dfdxxxxx-xxxx-xxxx-xxxx-xxxxxxba6eb0:key:7cea005e-75d4-4a08-ad2f-5e56141f6a96 --kms-encryption-algorithm AES256
+```
+
 ## Create a new multipart upload
 {: #ic-create-multipart-upload}
 * **Action:** Begin the multipart file upload process by creating a new multipart upload instance.
@@ -1156,7 +1186,7 @@ ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --reg
 {: #ic-put-obj-legal-hold}
 
 * **Action:** Set the legal hold on a object.
-* **Usage:** `object-retention-put --bucket BUCKET_NAME --key KEY [--retention STRUCTURE] [--region REGION] [--output FORMAT]`
+* **Usage:** `object-legal-hold-put --bucket BUCKET_NAME --key KEY [--legal-hold STRUCTURE] [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -1167,8 +1197,7 @@ ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --reg
 
 			```sh
 			{
-			  "Mode": "COMPLIANCE",
-			  "RetainUntilDate": timestamp
+			   "Status": "ON"|"OFF"
 			}
 			```
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
@@ -1179,14 +1208,14 @@ ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --reg
 Example:
 
 ```sh
-ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --retention '{ "Mode": "COMPLIANCE", "RetainUntilDate": "2024-02-02T00:00:00"}’
+ibmcloud cos object-legal-hold-put --bucket bucket-name --key file-name.txt --legal-hold ‘{"Status": "ON"}’
 ```
 
-### Get Object Retention
-{: #ic-get-obj-retention}
+### Get Object Legal Hold
+{: #ic-get-obj-legal-hold}
 
-* **Action:** Get retention on an object.
-* **Usage:** `object-retention-get --bucket BUCKET_NAME --key KEY [--region REGION] [--output FORMAT]`
+* **Action:** Get legal hold for a object.
+* **Usage:** `object-legal-hold-get --bucket BUCKET_NAME --key KEY [--region REGION] [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
@@ -1199,16 +1228,15 @@ ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --ret
 
 			```sh
 			{
-				"Retention": {
-					"Mode": "COMPLIANCE",
-					"RetainUntilDate": "2024-02-02T00:00:00.000Z"
+				"LegalHold": {
+					"Status": "ON"
 				}
 			}
 			```
 Example:
 
 ```sh
-ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --region us-south
+ibmcloud cos object-retention-get --bucket bucket-name --key file-name.txt --region us-south
 ```
 
 ## Next Steps
