@@ -3,7 +3,7 @@
 copyright:
 
   years: 2017, 2023
-lastupdated: "2023-05-19"
+lastupdated: "2023-07-07"
 
 
 keywords: cli, command line reference, object storage
@@ -971,6 +971,64 @@ To see the status of your multipart upload instance, you can always run the `par
 		* Flag: `--region REGION`
 	* _Optional_: Output FORMAT can be only json or text.
 		* Flag: `--output FORMAT`
+
+## Hyper Protect Crypto Services
+{: #ic-hyper-protect-cryto-services}
+
+### Create a new bucket
+{: #ic-create-a-new-bucket-hpcs}
+
+* **Action:** Create a new bucket with Hyper Protect Cryto Services.
+* **Usage:** `bucket-create --bucket BUCKET_NAME [--ibm-service-instance-id ID] [--class CLASS_NAME] [--region REGION] --kms-root-key-crn CUSTOMERROOTKEYCRN --kms-encryption-algorithm ALGORITHM [--output FORMAT] [--json]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The CUSTOMERROOTKEYCRN of the KMS root key associated with the bucket for data encryption.
+		* Flag: `--kms-root-key-crn CUSTOMERROOTKEYCRN`
+	* The ALGORITHM and SIZE to use with the encryption key stored by using key protect.
+		* Flag: `--kms-encryption-algorithm ALGORITHM`
+	* _Optional_: The name of the Class.
+		* Flag: `--class CLASS_NAME`
+	* _Optional_: Sets the IBM Service Instance ID in the request.
+		* Flag: `--ibm-service-instance-id ID`
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+	* (Deprecated): Output returned in raw JSON format..
+		* Flag: `--json`
+
+Example:
+
+```sh
+ibmcloud cos bucket-create --bucket hpcsclitrialbucket04 --kms-root-key-crn crn:v1:bluemix:public:hs-crypto:us-south:a/ee747e4xxxxxxxxxxxxxxxxxxxxxx7559:ac6xxxxx-xxxx-xxxx-xxxx-xxxxxx1bea99:key:e7451f36-d7ea-4f55-bc1c-ce4bcceb7018
+```
+
+## Object Lock configuration
+{: #ic-obj-lock-config}
+
+### Put Object Lock configuration
+{: #ic-create-a-new-bucket-hpcs}
+
+* **Action:** Create a new bucket with Hyper Protect Cryto Services.
+* **Usage:** `bucket-create --bucket BUCKET_NAME [--ibm-service-instance-id ID] [--class CLASS_NAME] [--region REGION] --kms-root-key-crn CUSTOMERROOTKEYCRN --kms-encryption-algorithm ALGORITHM [--output FORMAT] [--json]`
+* **Parameters to provide:**
+	* The name of the bucket.
+		* Flag: `--bucket BUCKET_NAME`
+	* The CUSTOMERROOTKEYCRN of the KMS root key associated with the bucket for data encryption.
+		* Flag: `--kms-root-key-crn CUSTOMERROOTKEYCRN`
+	* The ALGORITHM and SIZE to use with the encryption key stored by using key protect.
+		* Flag: `--kms-encryption-algorithm ALGORITHM`
+	* _Optional_: The name of the Class.
+		* Flag: `--class CLASS_NAME`
+	* _Optional_: Sets the IBM Service Instance ID in the request.
+		* Flag: `--ibm-service-instance-id ID`
+	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
+		* Flag: `--region REGION`
+	* _Optional_: Output FORMAT can be only json or text.
+		* Flag: `--output FORMAT`
+	* (Deprecated): Output returned in raw JSON format..
+		* Flag: `--json`
 
 ## Next Steps
 {: #cli-ref-next-steps}
