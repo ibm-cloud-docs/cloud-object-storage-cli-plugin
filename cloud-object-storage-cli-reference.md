@@ -267,13 +267,15 @@ If you want to add metadata to an object during the copying (using the `--metada
 {: #ic-create-bucket}
 
 * **Action:** Create a bucket in an IBM Cloud Object Storage instance.
-* **Usage:** `ibmcloud cos bucket-create --bucket BUCKET_NAME [--class CLASS_NAME] [--ibm-service-instance-id ID] [--region REGION] [--output FORMAT]`
+* **Usage:** `ibmcloud cos bucket-create --bucket BUCKET_NAME [--class CLASS_NAME][--class onerate_active] [--ibm-service-instance-id ID] [--region REGION] [--output FORMAT]`
 	* Note that you must provide a CRN if you are using IAM authentication. This can be set by using the [`ibmcloud cos config crn`](#ic-config) command.
 * **Parameters to provide:**
     * The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* _Optional_: The name of the Class.
 		* Flag: `--class CLASS_NAME`
+	* User must specify onerate_active when creating a bucket.
+		* Flag: `--class onerate_active`
 	* _Optional_: Sets the IBM Service Instance ID in the request.
 		* Flag: `--ibm-service-instance-id ID`
 	* _Optional_: The REGION where the bucket is present. If this flag is not provided, the program uses the default option that is specified in config.
