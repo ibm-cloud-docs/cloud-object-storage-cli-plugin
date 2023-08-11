@@ -1048,7 +1048,7 @@ In default retention Days and Years cannot be provided at the same time.
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
-		* Flag: `--object-lock-configuration STRUCTURE
+		* Flag: `--object-lock-configuration STRUCTURE`
 
 			```sh
 			{
@@ -1082,7 +1082,7 @@ ibmcloud cos object-lock-configuration-put --bucket bucket-name --object-lock-co
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
 	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
-		* Flag: `--object-lock-configuration STRUCTURE
+		* Flag: `--object-lock-configuration STRUCTURE`
 
 			```sh
 			{
@@ -1133,7 +1133,7 @@ ibmcloud cos object-lock-configuration-get --bucket bucket-name --region us-sout
 	* The KEY of the object.
 		* Flag: `--key KEY`
 	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
-		* Flag: `--retention STRUCTURE
+		* Flag: `--retention STRUCTURE`
 
 			```sh
 			{
@@ -1195,7 +1195,7 @@ ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --reg
 	* The KEY of the object.
 		* Flag: `--key KEY`
 	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
-		* Flag: `--legalhold STRUCTURE
+		* Flag: `--legalhold STRUCTURE`
 
 			```sh
 			{
