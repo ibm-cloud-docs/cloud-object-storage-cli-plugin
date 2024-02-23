@@ -2,8 +2,8 @@
 
 copyright:
 
-  years: 2017, 2023
-lastupdated: "2023-08-11"
+  years: 2017, 2024
+lastupdated: "2024-02-23"
 
 
 keywords: cli, command line reference, object storage
@@ -559,7 +559,7 @@ ibmcloud cos bucket-create --bucket bucket-name --kms-root-key-crn crn:v1:bluemi
 ## Find a bucket
 {: #ic-find-bucket}
 
-* **Action:** Determine the region and class of a bucket in an IBM Cloud Object Storage instance. 
+* **Action:** Determine the region and class of a bucket in an IBM Cloud Object Storage instance.
 * **Usage:** `ibmcloud cos bucket-location-get --bucket BUCKET_NAME [--output FORMAT]`
 * **Parameters to provide:**
 	* The name of the bucket.
@@ -1246,4 +1246,4 @@ ibmcloud cos object-retention-get --bucket bucket-name --key file-name.txt --reg
 ## Next Steps
 {: #cli-ref-next-steps}
 
-As every procedure always goes exactly as planned, you might not have seen any of the [common header and error codes](/docs/services/cloud-object-storage?topic=cloud-object-storage-compatibility-common). For more reference, check the [API reference](/apidocs/cos/cos-compatibility).
+As every procedure always goes exactly as planned, you might not have seen any of the [common header and error codes](/docs/cloud-object-storage?topic=cloud-object-storage-compatibility-common). For more reference, check the [API reference](/apidocs/cos/cos-compatibility).
