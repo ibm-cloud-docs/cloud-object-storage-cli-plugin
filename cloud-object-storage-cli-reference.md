@@ -1049,7 +1049,7 @@ In default retention Days and Years cannot be provided at the same time.
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
-	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 		* Flag: `--object-lock-configuration STRUCTURE`
 
 			```sh
@@ -1083,7 +1083,7 @@ ibmcloud cos object-lock-configuration-put --bucket bucket-name --object-lock-co
 * **Parameters to provide:**
 	* The name of the bucket.
 		* Flag: `--bucket BUCKET_NAME`
-	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 		* Flag: `--object-lock-configuration STRUCTURE`
 
 			```sh
@@ -1134,7 +1134,7 @@ ibmcloud cos object-lock-configuration-get --bucket bucket-name --region us-sout
 		* Flag: `--bucket BUCKET_NAME`
 	* The KEY of the object.
 		* Flag: `--key KEY`
-	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 		* Flag: `--retention STRUCTURE`
 
 			```sh
@@ -1196,7 +1196,7 @@ ibmcloud cos object-retention-put --bucket bucket-name --key file-name.txt --reg
 		* Flag: `--bucket BUCKET_NAME`
 	* The KEY of the object.
 		* Flag: `--key KEY`
-	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started).
+	* A STRUCTURE using JSON syntax. See [IBM Cloud Documentation](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage).
 		* Flag: `--legalhold STRUCTURE`
 
 			```sh
